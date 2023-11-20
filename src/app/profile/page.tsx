@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // corrected from 'next/navigation' to 'next/router'
+import { useRouter } from "next/navigation"; 
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 
@@ -33,7 +33,7 @@ const ProfilePage = () => {
     };
 
     getUserDetails();
-  }, []); // The empty array ensures this effect runs only once after the component mounts
+  }, []); 
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
