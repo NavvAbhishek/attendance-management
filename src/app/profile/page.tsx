@@ -1,13 +1,14 @@
 "use client";
 import axios from "axios";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRouter } from "next/navigation"; // corrected from 'next/navigation' to 'next/router'
+import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 
 const ProfilePage = () => {
   const router = useRouter();
   const [data, setData] = useState("nothing");
+
   const logout = async () => {
     try {
       await axios.get("/api/users/logout");
@@ -19,11 +20,20 @@ const ProfilePage = () => {
     }
   };
 
-  const getUserDetails = async () => {
-    const res = await axios.get("/api/users/me");
-    console.log(res.data);
-    setData(res.data.data._id);
-  };
+  useEffect(() => {
+    const getUserDetails = async () => {
+      try {
+        const res = await axios.get("/api/users/me");
+        console.log(res.data);
+        setData(res.data.data._id);
+      } catch (error: any) {
+        console.error(error.message);
+        toast.error(error.message);
+      }
+    };
+
+    getUserDetails();
+  }, []); // The empty array ensures this effect runs only once after the component mounts
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
@@ -48,15 +58,6 @@ const ProfilePage = () => {
         dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
       >
         Logout
-      </button>
-
-      <button
-        onClick={getUserDetails}
-        className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800"
-      >
-        <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-          GetUser Details
-        </span>
       </button>
     </div>
   );
