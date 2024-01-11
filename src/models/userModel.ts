@@ -15,13 +15,15 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide a password"],
     },
+    role: {
+        type: String,
+        required: [true, "Please provide a user role"],
+        enum: ['student', 'teacher', 'admin'], 
+        default: 'student', 
+    },
     isVerified: {
         type: Boolean,
         default: false,
-    },
-    isAdmin: {
-        type: Boolean,
-
     },
     forgotPasswordToken: String,
     forgotPasswordTokenExpiry: Date,

@@ -1,11 +1,12 @@
 import { Poppins } from "next/font/google";
-import FeatureSecOne from "./components/FeatureSecOne";
-import FeatureSecTwo from "./components/FeatureSecTwo";
-import Hero from "./components/Hero";
-import NavBar from "./components/Navbar";
-import Testimonial from "./components/Testimonial";
-import Footer from "./components/Footer";
-import NewsLetter from "./components/NewsLetter";
+import FeatureSecOne from "../components/FeatureSecOne";
+import FeatureSecTwo from "../components/FeatureSecTwo";
+import Hero from "../components/Hero";
+import NavBar from "../components/Navbar";
+import Testimonial from "../components/Testimonial";
+import Footer from "../components/Footer";
+import NewsLetter from "../components/NewsLetter";
+
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -19,8 +20,8 @@ export default function Home() {
       <Hero/>
       <FeatureSecOne/>
       <FeatureSecTwo/>
-      <Testimonial/>
       <NewsLetter/>
+      <Testimonial/>
       <Footer/>
     </div>
   );
