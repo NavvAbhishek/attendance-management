@@ -1,6 +1,12 @@
 import mongoose  from "mongoose";
+import User from '@/models/userModel'
 
 const ClassSchema = new mongoose.Schema({
+    teacher: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User', // Reference the user model
+        required: [true, "Please provide a teacher's ID"]
+    },
     year: {
         type: String,
         required: [true, "Please provide the year"],

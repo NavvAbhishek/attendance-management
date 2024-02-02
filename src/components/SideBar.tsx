@@ -99,6 +99,22 @@ const sideBar = () => {
               </Link>
             </li>
             <li>
+              <Link href="/dashboard/my-classes">
+                <button
+                  type="button"
+                  className="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                  aria-controls="dropdown-pages"
+                  data-collapse-toggle="dropdown-pages"
+                >
+                  <FaHouseUser className="w-6 h-6 text-normal-blue" />
+
+                  <span className="flex-1 ml-3 text-left whitespace-nowrap">
+                    My Classes
+                  </span>
+                </button>
+              </Link>
+            </li>
+            <li>
               <Link href="/dashboard/attendance-history">
                 <button
                   type="button"
