@@ -13,7 +13,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-const sideBar = () => {
+const SideBar = () => {
   const router = useRouter();
   const logout = async () => {
     try {
@@ -181,4 +181,4 @@ const sideBar = () => {
   );
 };
 
-export default sideBar;
+export default SideBar;

@@ -59,7 +59,7 @@ export default function NewsLetter() {
               </div>
               <dt className="mt-4 font-semibold text-white">No spam</dt>
               <dd className="mt-2 leading-7 text-gray-400">
-                Your inbox's integrity is important to us. We promise to only
+                Your inbox&apos;s integrity is important to us. We promise to only
                 send you content that is meaningful and relevant. 
               </dd>
             </div>

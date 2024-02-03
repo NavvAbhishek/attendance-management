@@ -35,7 +35,7 @@ const AboutUs = () => {
             proudly offer a platform that is trusted by businesses, educational
             institutions, and various organizations worldwide. Our system is
             more than just software. <br /> <br />
-             it's a testament to our commitment to
+             it&apos;s a testament to our commitment to
             quality, innovation, and customer satisfaction. We believe in
             constantly evolving and adapting to the ever-changing needs of our
             clients, ensuring that we are always at the forefront of attendance
@@ -46,7 +46,7 @@ const AboutUs = () => {
             get the most out of our system, offering personalized assistance
             whenever you need it. Join us in our journey as we continue to
             redefine attendance management. Discover the power of simplicity and
-            efficiency with <span className="text-dark-blue font-bold">Attendix</span>. Together, let's make every minute count.
+            efficiency with <span className="text-dark-blue font-bold">Attendix</span>. Together, let&apos;s make every minute count.
           </p>
         </div>
       </div>

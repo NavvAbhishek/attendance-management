@@ -56,7 +56,7 @@ const DashBoard = () => {
       {userData?.role === "student" ? (
         <div>
           <h1 className="text-xl sm:text-2xl font-bold text-red-600 capitalize p-12">
-            You don't have access to this page!!!
+            You don&apos;t have access to this page!!!
           </h1>
           <Link href="/">
             <button className="text-md font-bold text-red-700 p-2 rounded-md bg-dark-yellow ml-12">

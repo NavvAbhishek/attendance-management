@@ -1,8 +1,8 @@
 <style>
   @import
-  url('https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css')
+  url("https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css")
 </style>;
-
+import Image from 'next/image'
 const Testimonial = () => {
   return (
     <div>
@@ -33,7 +33,7 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <img src="https://i.pravatar.cc/100?img=1" alt="" />
+                      <Image src="https://i.pravatar.cc/100?img=1" alt="" />
                     </div>
                     <div className="flex-grow pl-3">
                       <h6 className="font-bold text-sm uppercase text-normal-blue">
@@ -44,7 +44,7 @@ const Testimonial = () => {
                   <div className="w-full">
                     <p className="text-sm leading-tight">
                       <span className="text-lg leading-none italic font-bold text-gray-400 mr-1">
-                        "
+                      &quot;
                       </span>
                       As a school administrator, this system has been a
                       game-changer. The real-time monitoring and automated
@@ -52,7 +52,7 @@ const Testimonial = () => {
                       workload, allowing us to focus more on student engagement
                       and less on paperwork.
                       <span className="text-lg leading-none italic font-bold text-gray-400 ml-1">
-                        "
+                      &quot;
                       </span>
                     </p>
                   </div>
@@ -60,7 +60,7 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <img src="https://i.pravatar.cc/100?img=2" alt="" />
+                      <Image src="https://i.pravatar.cc/100?img=2" alt="" />
                     </div>
                     <div className="flex-grow pl-3">
                       <h6 className="font-bold text-sm uppercase text-normal-blue">
@@ -71,14 +71,14 @@ const Testimonial = () => {
                   <div className="w-full">
                     <p className="text-sm leading-tight">
                       <span className="text-lg leading-none italic font-bold text-gray-400 mr-1">
-                        "
+                      &quot;
                       </span>
                       I was skeptical about switching to a new attendance
-                      system, but I'm glad I did. The mobile integration means I
-                      can manage my team's attendance from anywhere. It's
+                      system, but I&apos;m glad I did. The mobile integration means I
+                      can manage my team&apos;s attendance from anywhere. It&apos;s
                       incredibly convenient and user-friendly.
                       <span className="text-lg leading-none italic font-bold text-gray-400 ml-1">
-                        "
+                      &quot;
                       </span>
                     </p>
                   </div>
@@ -88,7 +88,7 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <img src="https://i.pravatar.cc/100?img=3" alt="" />
+                      <Image src="https://i.pravatar.cc/100?img=3" alt="" />
                     </div>
                     <div className="flex-grow pl-3">
                       <h6 className="font-bold text-sm uppercase text-normal-blue">
@@ -99,12 +99,12 @@ const Testimonial = () => {
                   <div className="w-full">
                     <p className="text-sm leading-tight">
                       <span className="text-lg leading-none italic font-bold text-gray-400 mr-1">
-                        "
+                      &quot;
                       </span>
                       The biometric integration of this system has heightened
                       our security and attendance accuracy.
                       <span className="text-lg leading-none italic font-bold text-gray-400 ml-1">
-                        "
+                      &quot;
                       </span>
                     </p>
                   </div>
@@ -112,7 +112,7 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <img src="https://i.pravatar.cc/100?img=4" alt="" />
+                      <Image src="https://i.pravatar.cc/100?img=4" alt="" />
                     </div>
                     <div className="flex-grow pl-3">
                       <h6 className="font-bold text-sm uppercase text-normal-blue">
@@ -123,13 +123,13 @@ const Testimonial = () => {
                   <div className="w-full">
                     <p className="text-sm leading-tight">
                       <span className="text-lg leading-none italic font-bold text-gray-400 mr-1">
-                        "
+                      &quot;
                       </span>
                       This platform is a must-have for any growing business. The
                       multi-location support has made it easier for us to expand
                       without worrying about attendance tracking complexities.
                       <span className="text-lg leading-none italic font-bold text-gray-400 ml-1">
-                        "
+                      &quot;
                       </span>
                     </p>
                   </div>
@@ -139,7 +139,7 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <img src="https://i.pravatar.cc/100?img=5" alt="" />
+                      <Image src="https://i.pravatar.cc/100?img=5" alt="" />
                     </div>
                     <div className="flex-grow pl-3">
                       <h6 className="font-bold text-sm uppercase text-normal-blue">
@@ -150,14 +150,14 @@ const Testimonial = () => {
                   <div className="w-full">
                     <p className="text-sm leading-tight">
                       <span className="text-lg leading-none italic font-bold text-gray-400 mr-1">
-                        "
+                      &quot;
                       </span>
                       As an HR professional, staying compliant with labor laws
                       is crucial. This system not only simplifies attendance
-                      tracking but also ensures we're always compliant. It's
+                      tracking but also ensures we&apos;re always compliant. It&apos;s
                       like having an extra team member dedicated to compliance!
                       <span className="text-lg leading-none italic font-bold text-gray-400 ml-1">
-                        "
+                      &quot;
                       </span>
                     </p>
                   </div>
@@ -165,7 +165,7 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <img src="https://i.pravatar.cc/100?img=6" alt="" />
+                      <Image src="https://i.pravatar.cc/100?img=6" alt="" />
                     </div>
                     <div className="flex-grow pl-3">
                       <h6 className="font-bold text-sm uppercase text-normal-blue">
@@ -176,15 +176,15 @@ const Testimonial = () => {
                   <div className="w-full">
                     <p className="text-sm leading-tight">
                       <span className="text-lg leading-none italic font-bold text-gray-400 mr-1">
-                        "
+                      &quot;
                       </span>
                       The customizable alerts feature has been a lifesaver for
-                      our remote team. We're instantly notified of any
+                      our remote team. We&apos;re instantly notified of any
                       attendance issues, which allows us to address them
                       promptly. This system has truly modernized our attendance
                       management.
                       <span className="text-lg leading-none italic font-bold text-gray-400 ml-1">
-                        "
+                      &quot;
                       </span>
                     </p>
                   </div>
