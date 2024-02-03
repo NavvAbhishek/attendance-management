@@ -3,6 +3,13 @@
   url(&quot;https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css&quot;)
 </style>;
 import Image from 'next/image'
+import avatar1 from '../../public/avatars/avatar1.png'
+import avatar2 from '../../public/avatars/avatar2.png'
+import avatar3 from '../../public/avatars/avatar3.png'
+import avatar4 from '../../public/avatars/avatar4.png'
+import avatar5 from '../../public/avatars/avatar5.png'
+import avatar6 from '../../public/avatars/avatar6.png'
+
 const Testimonial = () => {
   return (
     <div>
@@ -33,7 +40,7 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <Image src="https://i.pravatar.cc/100?img=1" alt="" />
+                      <Image src={avatar1} alt="" width={500} height={500}/>
                     </div>
                     <div className="flex-grow pl-3">
                       <h6 className="font-bold text-sm uppercase text-normal-blue">
@@ -60,7 +67,7 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <Image src="https://i.pravatar.cc/100?img=2" alt="" />
+                    <Image src={avatar2} alt="" width={500} height={500}/>
                     </div>
                     <div className="flex-grow pl-3">
                       <h6 className="font-bold text-sm uppercase text-normal-blue">
@@ -88,7 +95,7 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <Image src="https://i.pravatar.cc/100?img=3" alt="" />
+                    <Image src={avatar3} alt="" width={900} height={900}/>
                     </div>
                     <div className="flex-grow pl-3">
                       <h6 className="font-bold text-sm uppercase text-normal-blue">
@@ -112,7 +119,7 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <Image src="https://i.pravatar.cc/100?img=4" alt="" />
+                    <Image src={avatar4} alt="" width={500} height={500}/>
                     </div>
                     <div className="flex-grow pl-3">
                       <h6 className="font-bold text-sm uppercase text-normal-blue">
@@ -139,7 +146,7 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <Image src="https://i.pravatar.cc/100?img=5" alt="" />
+                    <Image src={avatar5} alt="" width={500} height={500}/>
                     </div>
                     <div className="flex-grow pl-3">
                       <h6 className="font-bold text-sm uppercase text-normal-blue">
@@ -165,7 +172,7 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <Image src="https://i.pravatar.cc/100?img=6" alt="" />
+                    <Image src={avatar6} alt="" width={500} height={500}/>
                     </div>
                     <div className="flex-grow pl-3">
                       <h6 className="font-bold text-sm uppercase text-normal-blue">
