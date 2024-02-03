@@ -4,7 +4,7 @@ import User from "@/models/userModel"; // Adjust the path as needed
 import {connect} from '@/dbConfig/dbConfig'; // Adjust the path as needed
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function GET(req: NextApiRequest, res: NextApiResponse) {
   try {
     await connect();
     const token = req.headers.authorization?.split(' ')[1];
