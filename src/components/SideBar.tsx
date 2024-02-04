@@ -19,7 +19,8 @@ const SideBar = () => {
     try {
       await axios.get("/api/users/logout");
       toast.success("Logout successful");
-      router.push("/login");
+      console.log("Logout successful");
+      router.push("/");
     } catch (error: any) {
       console.log(error.message);
       toast.error(error.message);
@@ -161,13 +162,12 @@ const SideBar = () => {
           </ul>
         </div>
         <div className="flex items-center justify-center absolute bottom-0 left-0 p-4 space-x-4 w-full  bg-white dark:bg-gray-800 z-20 border-r border-gray-200 dark:border-gray-700">
-          <a
-            href="#"
+          <button
+          onClick={logout}
             className="inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-600"
-            onClick={logout}
           >
             <TbLogout2 className="w-6 h-6 text-normal-blue" />
-          </a>
+          </button>
           <a
             href="#"
             data-tooltip-target="tooltip-settings"

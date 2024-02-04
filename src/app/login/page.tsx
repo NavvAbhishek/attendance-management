@@ -86,7 +86,7 @@ const LoginPage = () => {
       dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-4
       transition duration-200 ease-in-out transform hover:scale-105"
         >
-          Login
+          {buttonDisabled ? "No Login" : "Login"}
         </button>
         <Link
           href="/signup"
