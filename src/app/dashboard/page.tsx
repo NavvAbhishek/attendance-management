@@ -1,6 +1,5 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Link from "next/link";
@@ -34,10 +33,9 @@ type UserData = {
 };
 
 const DashBoard = () => {
-  const router = useRouter();
   const [userData, setUserData] = useState<UserData | null>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const getUserDetails = async () => {
       try {
         const res = await axios.get("/api/users/me");

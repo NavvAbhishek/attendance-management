@@ -1,6 +1,11 @@
 import mongoose  from "mongoose";
 
 const MarkedClassSchema = new mongoose.Schema({
+    studentId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User', // Reference the user model
+        required: [true, "Please provide a student's ID"]
+    },
     username: {
         type: String,
         required: [true, "Please provide a username"],

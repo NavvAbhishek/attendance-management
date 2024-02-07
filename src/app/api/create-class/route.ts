@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
         console.log(reqBody)
 
         const newClass = new Class({
-            teacher: userId, // Assign the extracted teacher ID
+            teacherId: userId, // Assign the extracted teacher ID
             year,
             semester,
             course,

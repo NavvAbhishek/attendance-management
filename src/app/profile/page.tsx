@@ -103,6 +103,13 @@ const ProfilePage = () => {
             </button>
           </div>
         </div>
+        <div>
+        <Link href="/profile/my-att-history">
+              <h1 className="text-md font-bold text-light-blue p-2 my-8 rounded-md bg-dark-yellow">
+                My Attendance History
+              </h1>
+            </Link>
+        </div>
       </div>
     </div>
   );

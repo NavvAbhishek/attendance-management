@@ -4,29 +4,34 @@ import axios from "axios";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 
-interface ClassItem {
+interface MarkedClassItem {
   _id: string;
-  teacherId: string;
-  year: string;
-  semester: string;
+  studentId: string;
+  username: string;
   course: string;
   date: string;
   startTime: string;
-  finishTime: string;
 }
-
-const MyClasses = () => {
-  const [classes, setClasses] = useState<ClassItem[]>([]);
+const MyAttendanceHistory = () => {
+  const [classes, setClasses] = useState<MarkedClassItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchClasses = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get("/api/my-classes");
-        setClasses(response.data.classes);
+        const response = await axios.get("/api/my-att-history");
+        // Check if response.data.classes is an array
+        if (Array.isArray(response.data.markedClass)) {
+          setClasses(response.data.markedClass);
+        } else {
+          console.error("Invalid format received from API");
+          // Optionally set classes to an empty array or handle the error differently
+          setClasses([]);
+        }
       } catch (error) {
         console.error("Error fetching classes:", error);
+        setClasses([]);
       } finally {
         setIsLoading(false);
       }
@@ -44,7 +49,7 @@ const MyClasses = () => {
       <Navbar />
       <div className="my-8 flex justify-center">
         <h1 className="text-3xl font-bold text-light-blue p-2 rounded-md">
-          My Classes
+          My Attendance History
         </h1>
       </div>
       {classes.length > 0 ? (
@@ -53,25 +58,17 @@ const MyClasses = () => {
             <table className="table min-w-full">
               <thead className="table-head bg-dark-blue text-dark-yellow">
                 <tr>
-                  <th>Class ID</th>
-                  <th> Year</th>
-                  <th>Semester</th>
                   <th>Course</th>
                   <th>Date</th>
-                  <th>Start Time</th>
-                  <th>Finish Time</th>
+                  <th>Time</th>
                 </tr>
               </thead>
               <tbody className="table-body">
                 {classes.map((classData, index) => (
                   <tr key={index}>
-                    <td>{classData._id.slice(6, 10)}</td>
-                    <td>{classData.year}</td>
-                    <td>{classData.semester}</td>
                     <td>{classData.course}</td>
                     <td>{classData.date}</td>
                     <td>{classData.startTime}</td>
-                    <td>{classData.finishTime}</td>
                   </tr>
                 ))}
               </tbody>
@@ -80,16 +77,18 @@ const MyClasses = () => {
         </div>
       ) : (
         <div className="text-center">
-            <h1 className="text-xl text-red-500 font-bold capitalize">You did not create any classes</h1>
-            <Link href="/dashboard/create-class">
-                <button className="blue-button text-lg mt-6">
-                    Create Class
-                </button>
-            </Link>
+          <h1 className="text-xl text-red-500 font-bold capitalize">
+            You did not mark any Attendance
+          </h1>
+          <Link href="/profile/mark-attendance">
+            <button className="blue-button text-lg mt-6">
+              Mark Attendance
+            </button>
+          </Link>
         </div>
       )}
     </div>
   );
 };
 
-export default MyClasses;
+export default MyAttendanceHistory;
