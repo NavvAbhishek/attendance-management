@@ -63,12 +63,12 @@ const DashBoard = () => {
           </Link>
         </div>
       ) : (
-        <div className="flex h-screen">
-          <div className="w-[18%]">
+        <div className="h-screen">
+          <div className="z-20">
             <SideBar />
           </div>
 
-          <div className="w-[82%] pt-5">
+          <div className="w-[100%] pt-5">
             <div className="flex items-start gap-8">
               <div className="flex items-start gap-8">
                 {cardData.map(({ Icon, title, number }) => (
