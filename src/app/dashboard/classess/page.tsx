@@ -3,8 +3,9 @@ import React, { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { FaClipboard } from "react-icons/fa";
+import { FaClipboard,FaPrint } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { useReactToPrint } from "react-to-print";
 
 type ClassData = {
   _id: string;
@@ -21,7 +22,9 @@ const ClassesPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const componentRef = useRef<HTMLDivElement>(null);
 
- 
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
 
   useEffect(() => {
     const getClassesData = async () => {
@@ -119,6 +122,14 @@ const ClassesPage = () => {
             </div>
           </div>
         </div>
+        <div className="flex gap-2 items-end justify-center mt-2">
+        <h2 className="text-md text-dark-blue font-semibold">Print</h2>
+        <FaPrint
+          className="cursor-pointer mt-2 w-5 h-5"
+          onClick={handlePrint}
+          title="Print Classes"
+        />
+      </div>
       </div>
     </div>
   );

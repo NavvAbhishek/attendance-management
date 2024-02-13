@@ -106,3 +106,10 @@
   }
 }
 
+/*? --------------- For print as pdf --------------- */
+@media print {
+  .printableArea {
+    padding-left: 1.5mm;
+    padding-right: 1.5mm;
+  }
+}
