@@ -3,9 +3,11 @@ import React, { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { FaClipboard,FaPrint } from "react-icons/fa";
+import { FaClipboard, FaPrint } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { useReactToPrint } from "react-to-print";
+import BackButton from "@/components/BackButton";
+import Link from "next/link";
 
 type ClassData = {
   _id: string;
@@ -70,6 +72,9 @@ const ClassesPage = () => {
   return (
     <div>
       <Navbar />
+      <Link href="/dashboard">
+        <BackButton title="Back to Dashboard" />
+      </Link>
       <div>
         <div className="printableArea" ref={componentRef}>
           <div className="my-8 flex justify-center cursor-pointer">
@@ -110,9 +115,7 @@ const ClassesPage = () => {
                           />
                         </span>
                         <span>
-                          <MdDelete
-                            className="w-6 h-6"
-                          />
+                          <MdDelete className="w-6 h-6" />
                         </span>
                       </td>
                     </tr>
@@ -123,13 +126,13 @@ const ClassesPage = () => {
           </div>
         </div>
         <div className="flex gap-2 items-end justify-center mt-2">
-        <h2 className="text-md text-dark-blue font-semibold">Print</h2>
-        <FaPrint
-          className="cursor-pointer mt-2 w-5 h-5"
-          onClick={handlePrint}
-          title="Print Classes"
-        />
-      </div>
+          <h2 className="text-md text-dark-blue font-semibold">Print</h2>
+          <FaPrint
+            className="cursor-pointer mt-2 w-5 h-5"
+            onClick={handlePrint}
+            title="Print Classes"
+          />
+        </div>
       </div>
     </div>
   );
