@@ -1,5 +1,5 @@
 "use client";
-import { useState, useLayoutEffect } from "react";
+import { useState, useLayoutEffect, useEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Link from "next/link";
@@ -34,6 +34,7 @@ type UserData = {
 
 const DashBoard = () => {
   const [userData, setUserData] = useState<UserData | null>(null);
+  const [attendanceCount, setAttendanceCount] = useState(null);
 
   useLayoutEffect(() => {
     const getUserDetails = async () => {
@@ -46,8 +47,51 @@ const DashBoard = () => {
         toast.error(error.message);
       }
     };
+
+    // const getAttendanceCounts = async () => {
+    //   try {
+    //     const response = await axios.get('/api/attendance-count');
+    //     setAttendanceCounts(response.data);
+    //   } catch (error) {
+    //     toast.error('Error fetching attendance counts');
+    //   }
+    // };
     getUserDetails();
+   // getAttendanceCounts();
   }, []);
+
+  useEffect(() => {
+    // Fetch user count from your API endpoint
+    const fetchAttendanceCount = async () => {
+      try {
+        const response = await fetch('/api/attendance-count'); // Replace '/api/your-endpoint' with your actual API endpoint
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setAttendanceCount(data.attendanceCount);
+      } catch (error) {
+        console.error('Fetch error:', error);
+      }
+    };
+
+    fetchAttendanceCount();
+  }, []);
+
+  // useEffect(() => {
+  //   const fetchAttendanceCounts = async () => {
+  //     try {
+  //       const response = await axios.get("/api/attendance-count");
+  //       setTotalAttendance(response.data.totalAttendance);
+  //       setTodayAttendance(response.data.todayAttendance);
+  //     } catch (error) {
+  //       console.error("Error fetching attendance counts:", error);
+  //       toast.error("Failed to fetch attendance counts");
+  //     }
+  //   };
+  //   fetchAttendanceCounts();
+  // });
+
 
   return (
     <div>
@@ -63,34 +107,37 @@ const DashBoard = () => {
           </Link>
         </div>
       ) : (
-        <div className="h-screen">
-          <div className="z-20">
+        <div className="h-screen flex">
+          <div className="z-20 md:w-[20%]">
             <SideBar />
           </div>
 
-          <div className="w-[100%] pt-5">
-            <div className="flex items-start gap-8">
-              <div className="flex items-start gap-8">
-                {cardData.map(({ Icon, title, number }) => (
-                  <div className="flex items-center flex-col" key={title}>
-                    <div className="p-3 bg-yellow-400 rounded-lg mb-3">
-                      <Icon className="w-8 h-8 text-normal-blue" />
-                    </div>
-                    <p className="font-bold">{title}</p>
-                    <p>{number}</p>
+          <div className="w-[100%] md:w-[80%] pt-5">
+            <div className="flex items-center justify-center gap-8">
+              {cardData.map(({ Icon, title, number }) => (
+                <div className="flex items-center flex-col" key={title}>
+                  <div className="p-3 bg-yellow-400 rounded-lg mb-3">
+                    <Icon className="w-8 h-8 text-normal-blue" />
                   </div>
-                ))}
-              </div>
+                  <p className="font-bold">{title}</p>
+                  <p>{number}</p>
+                </div>
+              ))}
             </div>
-            <div className="flex w-full pt-10">
-              <div className="w-[70%]">
+            <div className="flex w-full pt-10 md:flex-row flex-col">
+              <div className="lg:w-[30rem] w-[25rem]">
                 <h1 className="text-dark-blue font-bold text-2xl mb-5">
                   Attendance Overview Chart
                 </h1>
                 <Chart />
               </div>
-              <div className="w-[30%] ">
+              <div>
                 <Calander />
+              </div>
+              <div>
+                <h1 className="text-dark-blue font-bold text-2xl mb-5">
+                  Total Attendance Count -{attendanceCount} <br />
+                </h1>
               </div>
             </div>
           </div>

@@ -4,21 +4,21 @@
 
 /*? --------------- global.css --------------- */
 .yellow-button {
-  color: #001D3D; /* Using CSS variables for Tailwind colors */
-  background-color: #FFD60A;
+  color: #001d3d; /* Using CSS variables for Tailwind colors */
+  background-color: #ffd60a;
   border-radius: 0.5rem; /* This is equivalent to Tailwind's 'rounded-lg' */
   //font-size: 1rem; /* Equivalent to 'text-sm' */
-  padding: 0.500rem 1rem; /* 'py-2.5 px-5' */
+  padding: 0.5rem 1rem; /* 'py-2.5 px-5' */
   text-align: center;
   //font-weight: 600; /* 'font-semibold' */
 }
 
 .blue-button {
-  color: #FFD60A; /* Using CSS variables for Tailwind colors */
-  background-color: #001D3D;
+  color: #ffd60a; /* Using CSS variables for Tailwind colors */
+  background-color: #001d3d;
   border-radius: 0.5rem; /* This is equivalent to Tailwind's 'rounded-lg' */
   //font-size: 1rem; /* Equivalent to 'text-sm' */
-  padding: 0.500rem 1rem; /* 'py-2.5 px-5' */
+  padding: 0.5rem 1rem; /* 'py-2.5 px-5' */
   text-align: center;
   //font-weight: 600; /* 'font-semibold' */
 }
@@ -48,7 +48,8 @@
   transform: translateX(3px);
 }
 
-.icon, .text {
+.icon,
+.text {
   transition: transform 0.3s ease;
 }
 
@@ -60,18 +61,19 @@
 }
 
 .table-body tr:nth-child(even) {
-  background-color: #FFD60A; 
+  background-color: #ffd60a;
 }
 
 .table-body tr:hover:nth-child(even) {
-  background-color: #FFC300;
+  background-color: #ffc300;
 }
 
 .table-body {
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.table-body th, .table-body td {
+.table-body th,
+.table-body td {
   border: 2px solid #000;
   padding: 8px;
   text-align: left;
@@ -84,20 +86,23 @@
 
 @media (max-width: 768px) {
   .table-head th {
-    font-size: 0.800rem; 
-  } 
-  .table-body th, .table-body td {
-    padding: 2px 4px; 
-    font-size: 0.850rem; 
+    font-size: 0.8rem;
+  }
+  .table-body th,
+  .table-body td {
+    padding: 2px 4px;
+    font-size: 0.85rem;
   }
 }
 
-@media (max-width: 640px) { 
+@media (max-width: 640px) {
   .table-head th {
-    font-size: 0.800rem; 
-  } 
-  .table-body th, .table-body td {
-    padding: 1px 2px; 
-    font-size: 0.800rem; 
+    font-size: 0.8rem;
+  }
+  .table-body th,
+  .table-body td {
+    padding: 1px 2px;
+    font-size: 0.8rem;
   }
 }
+

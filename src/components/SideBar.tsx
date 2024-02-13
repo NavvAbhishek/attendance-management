@@ -62,7 +62,7 @@ const Sidebar = () => {
   
   return (
     <div className="relative">
-      <div className={`open-sidebar absolute transition duration-700 ease-in-out ${sidebar ? "-translate-x-full" : "translate-x-0"} sm:hidden`}>
+      <div className={`open-sidebar absolute transition duration-700 ease-in-out ${sidebar ? "-translate-x-full" : "translate-x-0"} md:hidden`}>
         <div className="z-10 ml-10 mt-6">
           <RiMenu4Line
             onClick={()=> setSidebar(true)}
@@ -70,9 +70,9 @@ const Sidebar = () => {
           />
         </div>
       </div>
-      <div className={`sidebar absolute top-0 left-0 z-20 transition duration-700 ease-in-out sm:translate-x-0 ${sidebar ? "translate-x-0" : "-translate-x-full"}  bg-dark-blue w-fit h-screen `}>
+      <div className={`sidebar absolute top-0 left-0 z-20 transition duration-700 ease-in-out md:translate-x-0 ${sidebar ? "translate-x-0" : "-translate-x-full"}  bg-dark-blue w-fit h-screen `}>
         <div className="icons">
-          <div className="close-sidebar block sm:hidden">
+          <div className="close-sidebar block md:hidden">
             <MdOutlineClose 
             onClick={()=> setSidebar(false)}
             className="w-8 h-8 text-dark-yellow absolute right-5 top-5 cursor-pointer" />
