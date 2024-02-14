@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import Image from "next/image";
 import profileImg from "../../../public/profile-img.png";
 import Navbar from "@/components/Navbar";
+import BackButton from "@/components/BackButton";
 
 type UserData = {
   _id: string;
@@ -51,42 +52,51 @@ const ProfilePage = () => {
   return (
     <div>
       <Navbar />
+      <Link href="/">
+        <BackButton title="Back to Home" />
+      </Link>
       <div className="flex flex-col items-center justify-center">
         <div>
-          <h1 className="text-3xl font-bold text-light-blue p-2 rounded-md bg-dark-yellow mt-6">
+          <h1 className="text-3xl font-bold text-light-blue p-2 rounded-md mt-16 sm:mt-6">
             My Profile
           </h1>
         </div>
-        <Image
-          src={profileImg}
-          alt="Picture of User"
-          className="mt-4 sm:w-[325px] sm:h-[325px] w-[275px] h-[275px]"
-          // blurDataURL="data:..." automatically provided
-          // placeholder="blur" // Optional blur-up while loading
-        />
         {userData && (
-          <div className="sm:px-16 px-9 py-6 mt-6 rounded-lg bg-light-blue text-dark-yellow cursor-pointer ">
+          <div className="flex flex-col gap-4 items-center sm:px-16 px-9 py-6 mt-6 rounded-lg bg-light-blue text-dark-yellow cursor-pointer ">
             <div>
-              <span className="font-bold">Name - </span>
-              {userData.username}{" "}
+              <Image
+                src={profileImg}
+                alt="Picture of User"
+                className="mt-4 w-[125px] h-[125px] rounded-2xl"
+              />
             </div>
             <div>
-              <span className="font-bold">User ID - </span>
-              {userData._id.slice(6, 10)}
-            </div>
-            <div>
-              <span className="font-bold">Email - </span>
-              {userData.email}{" "}
+              <div>
+                <span className="font-bold">Name - </span>
+                {userData.username}{" "}
+              </div>
+              <div>
+                <span className="font-bold">User ID - </span>
+                {userData._id.slice(6, 10)}
+              </div>
+              <div>
+                <span className="font-bold">Email - </span>
+                {userData.email}{" "}
+              </div>
             </div>
           </div>
         )}
-
         <hr />
-        <div className="buttons flex mt-8 sm:gap-[6.5rem] gap-12">
+        <div className="buttons flex mt-8 sm:gap-[4.5rem] gap-10">
           <div>
             <Link href="/profile/mark-attendance">
               <h1 className="text-md font-bold text-light-blue p-2 rounded-md bg-dark-yellow">
                 Mark Attendance
+              </h1>
+            </Link>
+            <Link href="/profile/my-att-history">
+              <h1 className="text-md font-bold text-light-blue p-2 my-8 rounded-md bg-dark-yellow">
+                My Attendance History
               </h1>
             </Link>
           </div>
@@ -103,13 +113,7 @@ const ProfilePage = () => {
             </button>
           </div>
         </div>
-        <div>
-        <Link href="/profile/my-att-history">
-              <h1 className="text-md font-bold text-light-blue p-2 my-8 rounded-md bg-dark-yellow">
-                My Attendance History
-              </h1>
-            </Link>
-        </div>
+        <div></div>
       </div>
     </div>
   );
