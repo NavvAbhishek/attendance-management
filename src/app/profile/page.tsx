@@ -88,18 +88,22 @@ const ProfilePage = () => {
         )}
         <hr />
         <div className="buttons flex mt-8 sm:gap-[4.5rem] gap-10">
-          <div>
-            <Link href="/profile/mark-attendance">
-              <h1 className="text-md font-bold text-light-blue p-2 rounded-md bg-dark-yellow">
-                Mark Attendance
-              </h1>
-            </Link>
-            <Link href="/profile/my-att-history">
-              <h1 className="text-md font-bold text-light-blue p-2 my-8 rounded-md bg-dark-yellow">
-                My Attendance History
-              </h1>
-            </Link>
-          </div>
+          {userData?.role === "student" ? (
+            <div>
+              <Link href="/profile/mark-attendance">
+                <h1 className="text-md font-bold text-light-blue p-2 rounded-md bg-dark-yellow">
+                  Mark Attendance
+                </h1>
+              </Link>
+              <Link href="/profile/my-att-history">
+                <h1 className="text-md font-bold text-light-blue p-2 my-8 rounded-md bg-dark-yellow">
+                  My Attendance History
+                </h1>
+              </Link>
+            </div>
+          ) : (
+            ""
+          )}
           <div>
             <button
               type="button"

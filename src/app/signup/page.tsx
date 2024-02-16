@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
+import Image from "next/image";
+import logo from "../../../public/Logo.png";
 
 const SignupPage = () => {
   const router = useRouter();
@@ -11,7 +13,7 @@ const SignupPage = () => {
     email: "",
     password: "",
     username: "",
-    role: "student"
+    role: "student",
   });
 
   const [buttonDisabled, setButtonDisabled] = useState(false);
@@ -52,17 +54,22 @@ const SignupPage = () => {
   // };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
-      <h1 className="text-normal-blue font-bold text-4xl mb-8">
+    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100  pattern-bg">
+      <h1 className="white-button font-bold shadow-xl text-4xl mb-5">
         {loading ? "Processing..." : "Signup"}
       </h1>
-
+      <Image
+        src={logo}
+        alt="logo"
+         width={100} 
+        height={100} 
+        className="rounded-lg mb-5"
+      />
       <div className="bg-white shadow-xl rounded-lg p-8 max-w-sm w-full">
-        <hr className="mb-6 border-t-2 border-gray-200" />
 
         <label
           htmlFor="username"
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="block text-sm font-medium text-light-blue mb-1"
         >
           Username
         </label>
@@ -77,7 +84,7 @@ const SignupPage = () => {
 
         <label
           htmlFor="email"
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="block text-sm font-medium text-light-blue mb-1"
         >
           Email
         </label>
@@ -92,7 +99,7 @@ const SignupPage = () => {
 
         <label
           htmlFor="password"
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="block text-sm font-medium text-light-blue mb-1"
         >
           Password
         </label>
@@ -107,8 +114,8 @@ const SignupPage = () => {
         {/* //! ----------------------Dropdown menu------------------------ */}
         <div className="mb-4">
           <select
-           value={user.role}
-           onChange={(e) => setUser({ ...user, role: e.target.value })}
+            value={user.role}
+            onChange={(e) => setUser({ ...user, role: e.target.value })}
             className="p-2 border border-gray-300 rounded-lg"
           >
             <option value="student">Student</option>
@@ -121,16 +128,14 @@ const SignupPage = () => {
           onClick={onSignup}
           type="button"
           className="
-        w-full text-white bg-gradient-to-br from-purple-600 to-blue-500 
-        hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 
-        dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-4
+        w-full font-medium rounded-lg text-sm blue-button mb-4
         transition duration-200 ease-in-out transform hover:scale-105"
         >
           {buttonDisabled ? "No Signup" : "Signup"}
         </button>
         <Link
           href="/login"
-          className="text-blue-500 hover:text-blue-600 transition duration-200"
+          className="text-light-blue hover:text-dark-blue transition duration-200"
         >
           Visit login page
         </Link>
