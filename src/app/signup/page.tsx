@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Image from "next/image";
-import logo from "../../../public/Logo.png";
+import Img from "../../../public/signup_img.webp";
 
 const SignupPage = () => {
   const router = useRouter();
@@ -55,90 +55,91 @@ const SignupPage = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100  pattern-bg">
-      <h1 className="white-button font-bold shadow-xl text-4xl mb-5">
-        {loading ? "Processing..." : "Signup"}
-      </h1>
-      <Image
-        src={logo}
-        alt="logo"
-         width={100} 
-        height={100} 
-        className="rounded-lg mb-5"
-      />
-      <div className="bg-white shadow-xl rounded-lg p-8 max-w-sm w-full">
-
-        <label
-          htmlFor="username"
-          className="block text-sm font-medium text-light-blue mb-1"
-        >
-          Username
-        </label>
-        <input
-          className="p-3 border border-gray-300 rounded-lg text-black w-full mb-4 focus:border-blue-500 focus:ring focus:ring-blue-200 transition duration-200"
-          type="text"
-          id="username"
-          value={user.username}
-          onChange={(e) => setUser({ ...user, username: e.target.value })}
-          placeholder="Enter your username"
-        />
-
-        <label
-          htmlFor="email"
-          className="block text-sm font-medium text-light-blue mb-1"
-        >
-          Email
-        </label>
-        <input
-          className="p-3 border border-gray-300 rounded-lg text-black w-full mb-4 focus:border-blue-500 focus:ring focus:ring-blue-200 transition duration-200"
-          type="text"
-          id="email"
-          value={user.email}
-          onChange={(e) => setUser({ ...user, email: e.target.value })}
-          placeholder="Enter your email"
-        />
-
-        <label
-          htmlFor="password"
-          className="block text-sm font-medium text-light-blue mb-1"
-        >
-          Password
-        </label>
-        <input
-          className="p-3 border border-gray-300 rounded-lg text-black w-full mb-6 focus:border-blue-500 focus:ring focus:ring-blue-200 transition duration-200"
-          type="password"
-          id="password"
-          value={user.password}
-          onChange={(e) => setUser({ ...user, password: e.target.value })}
-          placeholder="Enter your password"
-        />
-        {/* //! ----------------------Dropdown menu------------------------ */}
-        <div className="mb-4">
-          <select
-            value={user.role}
-            onChange={(e) => setUser({ ...user, role: e.target.value })}
-            className="p-2 border border-gray-300 rounded-lg"
-          >
-            <option value="student">Student</option>
-            <option value="teacher">Teacher</option>
-            <option value="admin">Admin</option>
-          </select>
+      <div className="flex md:flex-row flex-col">
+        <div className="mt-10 md:mt-0">
+          <Image
+            src={Img}
+            alt="logo"
+            className="w-[400px] md:w-[500px] h-[550px] object-cover md:rounded-s-lg"
+          />
         </div>
-        {/* //! ----------------------Signup Button------------------------ */}
-        <button
-          onClick={onSignup}
-          type="button"
-          className="
+        <div className="bg-yellow-100 shadow-xl p-8 h-[550px] w-[400px] md:w-[450px] mb-10 md:mb-0 md:rounded-e-lg">
+          <h1 className="font-bold text-center mb-4 text-4xl">
+            {loading ? "Processing..." : "Signup"}
+          </h1>
+          <label
+            htmlFor="username"
+            className="block text-sm font-medium text-light-blue mb-1"
+          >
+            Username
+          </label>
+          <input
+            className="p-3 border border-gray-300 rounded-lg text-black w-full mb-4 focus:border-blue-500 focus:ring focus:ring-blue-200 transition duration-200"
+            type="text"
+            id="username"
+            value={user.username}
+            onChange={(e) => setUser({ ...user, username: e.target.value })}
+            placeholder="Enter your username"
+          />
+
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-light-blue mb-1"
+          >
+            Email
+          </label>
+          <input
+            className="p-3 border border-gray-300 rounded-lg text-black w-full mb-4 focus:border-blue-500 focus:ring focus:ring-blue-200 transition duration-200"
+            type="text"
+            id="email"
+            value={user.email}
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
+            placeholder="Enter your email"
+          />
+
+          <label
+            htmlFor="password"
+            className="block text-sm font-medium text-light-blue mb-1"
+          >
+            Password
+          </label>
+          <input
+            className="p-3 border border-gray-300 rounded-lg text-black w-full mb-6 focus:border-blue-500 focus:ring focus:ring-blue-200 transition duration-200"
+            type="password"
+            id="password"
+            value={user.password}
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
+            placeholder="Enter your password"
+          />
+          {/* //! ----------------------Dropdown menu------------------------ */}
+          <div className="mb-4">
+            <select
+              value={user.role}
+              onChange={(e) => setUser({ ...user, role: e.target.value })}
+              className="p-2 border border-gray-300 rounded-lg"
+            >
+              <option value="student">Student</option>
+              <option value="teacher">Teacher</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          {/* //! ----------------------Signup Button------------------------ */}
+          <button
+            onClick={onSignup}
+            type="button"
+            className="
         w-full font-medium rounded-lg text-sm blue-button mb-4
         transition duration-200 ease-in-out transform hover:scale-105"
-        >
-          {buttonDisabled ? "No Signup" : "Signup"}
-        </button>
-        <Link
-          href="/login"
-          className="text-light-blue hover:text-dark-blue transition duration-200"
-        >
-          Visit login page
-        </Link>
+          >
+            {buttonDisabled ? "No Signup" : "Signup"}
+          </button>
+          <Link
+            href="/login"
+            className="text-light-blue hover:text-dark-blue transition duration-200"
+          >
+            Visit login page
+          </Link>
+        </div>
       </div>
     </div>
   );
