@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import Navbar from "@/components/Navbar";
 import { FaAnglesRight } from "react-icons/fa6";
 import Link from "next/link";
+import BackButton from "@/components/BackButton";
 
 const years = [1, 2, 3, 4];
 const semesters = [1, 2];
@@ -64,6 +65,9 @@ const CreateClassPage: React.FC = () => {
     <div className="">
       <Navbar />
       <div className="relative bg-blue-50">
+        <Link href="/dashboard">
+          <BackButton title="Back to Dashboard" className="top-4 md:top-8 left-5"/>
+        </Link>
         <form
           className="flex justify-center items-center h-auto sm:py-6 py-[70px]"
           onSubmit={handleSubmit}

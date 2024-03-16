@@ -1,6 +1,8 @@
 "use client";
+import BackButton from "@/components/BackButton";
 import Navbar from "@/components/Navbar";
 import axios from "axios";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
@@ -45,7 +47,12 @@ const AttendanceHistory = () => {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
+      <Link href="/dashboard">
+        <BackButton
+          title="Back to Dashboard"
+        />
+      </Link>
       <div className="mt-8 flex justify-center cursor-pointer">
         <h1 className="text-3xl font-bold text-light-blue p-2 rounded-md bg-dark-yellow ">
           Attendance History

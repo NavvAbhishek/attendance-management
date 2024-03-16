@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
+import BackButton from "@/components/BackButton";
 
 interface ClassItem {
   _id: string;
@@ -42,6 +43,9 @@ const MyClasses = () => {
   return (
     <div>
       <Navbar />
+      <Link href="/dashboard">
+        <BackButton title="Back to Dashboard" />
+      </Link>
       <div className="my-8 flex justify-center">
         <h1 className="text-3xl font-bold text-light-blue p-2 rounded-md">
           My Classes

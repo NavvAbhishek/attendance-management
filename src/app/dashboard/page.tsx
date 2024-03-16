@@ -6,8 +6,8 @@ import Link from "next/link";
 import SideBar from "@/components/SideBar";
 import { PiStudentBold, PiBooksBold } from "react-icons/pi";
 import { GiTeacher } from "react-icons/gi";
-import Calander from "@/components/Calander";
 import { Chart } from "@/components/Chart";
+import { PieChart } from "@/components/PieChart";
 
 const cardData = [
   {
@@ -57,21 +57,21 @@ const DashBoard = () => {
     //   }
     // };
     getUserDetails();
-   // getAttendanceCounts();
+    // getAttendanceCounts();
   }, []);
 
   useEffect(() => {
     // Fetch user count from your API endpoint
     const fetchAttendanceCount = async () => {
       try {
-        const response = await fetch('/api/attendance-count'); // Replace '/api/your-endpoint' with your actual API endpoint
+        const response = await fetch("/api/attendance-count"); // Replace '/api/your-endpoint' with your actual API endpoint
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
         const data = await response.json();
         setAttendanceCount(data.attendanceCount);
       } catch (error) {
-        console.error('Fetch error:', error);
+        console.error("Fetch error:", error);
       }
     };
 
@@ -91,7 +91,6 @@ const DashBoard = () => {
   //   };
   //   fetchAttendanceCounts();
   // });
-
 
   return (
     <div>
@@ -124,15 +123,18 @@ const DashBoard = () => {
                 </div>
               ))}
             </div>
-            <div className="flex w-full pt-10 md:flex-row flex-col">
-              <div className="lg:w-[30rem] w-[25rem]">
+            <div className="flex w-full justify-center items-center md:items-start md:justify-start pt-10 md:flex-row flex-col">
+              <div className="lg:w-[27.5rem] w-[25rem]">
                 <h1 className="text-dark-blue font-bold text-2xl mb-5">
                   Attendance Overview Chart
                 </h1>
                 <Chart />
               </div>
-              <div>
-                <Calander />
+              <div className="w-[25rem]">
+                <h1 className="text-dark-blue font-bold text-2xl mb-5">
+                  Participations For Courses
+                </h1>
+                <PieChart />
               </div>
               <div>
                 <h1 className="text-dark-blue font-bold text-2xl mb-5">
