@@ -30,12 +30,13 @@ const MarkAttendence: React.FC = () => {
   const [username, setUsername] = useState("nothing");
   const [userData, setUserData] = useState<UserData | null>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const getUserDetails = async () => {
       try {
         const res = await axios.get("/api/users/me");
         console.log(res.data);
-        setUserData(res.data.data);
+        setUserData(res.data.data); // Set the user data
+        setUsername(res.data.data.username); // Set the username based on fetched user data
       } catch (error: any) {
         console.error(error.message);
         toast.error(error.message);
@@ -56,20 +57,6 @@ const MarkAttendence: React.FC = () => {
       }
     };
     getClassesData();
-  }, []);
-
-  useEffect(() => {
-    const getUserDetails = async () => {
-      try {
-        const res = await axios.get("/api/users/me");
-        console.log("User Data", res.data);
-        setUsername(res.data.data.username);
-      } catch (error: any) {
-        console.error(error.message);
-        toast.error(error.message);
-      }
-    };
-    getUserDetails();
   }, []);
 
   const handleSearch = () => {

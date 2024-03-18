@@ -1,3 +1,4 @@
+// route.ts
 import { connect } from "@/dbConfig/dbConfig";
 import MarkedClass from "@/models/markedClassModel";
 import { NextRequest, NextResponse } from "next/server";
@@ -6,12 +7,25 @@ connect();
 
 export async function GET(request: NextRequest) {
   try {
-    const attendanceCount = await MarkedClass.countDocuments();
-    return NextResponse.json({ attendanceCount });
+    // Get today's date at midnight
+    const startOfDay = new Date();
+    startOfDay.setHours(0, 0, 0, 0);
 
+    // Get the current date at 23:59:59
+    const endOfDay = new Date();
+    endOfDay.setHours(23, 59, 59, 999);
+
+    const attendanceCount = await MarkedClass.countDocuments({
+      // Assuming you have a createdAt field in your documents
+      createdAt: {
+        $gte: startOfDay,
+        $lt: endOfDay,
+      },
+    });
+    
+    return NextResponse.json({ attendanceCount });
   } catch (error: any) {
     // Handle any errors and send an appropriate response
     return NextResponse.json({ error: error.message }, { status: 400 });
   }
 }
-

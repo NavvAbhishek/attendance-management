@@ -1,17 +1,17 @@
 import { connect } from '@/dbConfig/dbConfig'
 import markedClass from '@/models/markedClassModel'
-import getDataFromToken from '@/helpers/getDataFromToken'; 
+import getDataFromToken from '@/helpers/getDataFromToken';
 import { NextRequest, NextResponse } from 'next/server'
 
 connect()
 
-export async function POST(request: NextRequest){
-  try{
+export async function POST(request: NextRequest) {
+  try {
     const reqBody = await request.json()
     console.log("Received request body:", reqBody);
 
     // Extract student ID from the token
-    const {userId} = getDataFromToken(request);
+    const { userId } = getDataFromToken(request);
     console.log("Extracted User ID:", userId);
 
     const { username, course, date, startTime } = reqBody;
@@ -28,20 +28,20 @@ export async function POST(request: NextRequest){
       course,
       date,
       startTime,
-  })
+    })
 
-  const savedMarkedClass = await newMarkedClass.save()
-  console.log(savedMarkedClass)
+    const savedMarkedClass = await newMarkedClass.save()
+    console.log(savedMarkedClass)
 
-  return NextResponse.json({
-    message: "Marked Class entered successfully",
-    success: true,
-    savedMarkedClass
-})
+    return NextResponse.json({
+      message: "Marked Class entered successfully",
+      success: true,
+      savedMarkedClass
+    })
 
-  }catch (error: any) {
+  } catch (error: any) {
     return NextResponse.json({ error: error.message },
-        { status: 500 }
+      { status: 500 }
     )
-}
+  }
 }

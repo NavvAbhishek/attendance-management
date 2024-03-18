@@ -22,6 +22,10 @@ const MarkedClassSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please provide the start time"],
     },
+    markedAt: {
+        type: Date,
+        default: Date.now, 
+    },
 })
 
 const MarkedClass = mongoose.models.marked || mongoose.model("marked",MarkedClassSchema)
