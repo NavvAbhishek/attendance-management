@@ -1,4 +1,4 @@
-// route.ts
+// Updated route.ts
 import { connect } from "@/dbConfig/dbConfig";
 import MarkedClass from "@/models/markedClassModel";
 import { NextRequest, NextResponse } from "next/server";
@@ -16,8 +16,8 @@ export async function GET(request: NextRequest) {
     endOfDay.setHours(23, 59, 59, 999);
 
     const attendanceCount = await MarkedClass.countDocuments({
-      // Assuming you have a createdAt field in your documents
-      createdAt: {
+      // Use the markedAt field to filter attendances for today
+      markedAt: {
         $gte: startOfDay,
         $lt: endOfDay,
       },

@@ -43,7 +43,6 @@ const cardData = [
     number: "95%",
     description: "This month",
   },
- 
 ];
 
 type UserData = {
@@ -51,9 +50,37 @@ type UserData = {
   role: string;
 };
 
+type MarkedClassData = {
+  username: string;
+  course: string;
+};
+
 const DashBoard = () => {
   const [userData, setUserData] = useState<UserData | null>(null);
   const [attendanceCount, setAttendanceCount] = useState(null);
+  const [markedClassData, setMarkedClassData] = useState<MarkedClassData[]>([]);
+
+  useEffect(() => {
+    const getMarkedClassesData = async () => {
+      try {
+        const res = await axios.get("/api/att-history"); // Corrected endpoint
+        console.log("API Response:", res.data);
+
+        if (Array.isArray(res.data.data)) {
+          // Accessing the array inside the response object
+          setMarkedClassData(res.data.data);
+        } else {
+          console.error("Data is not an array", res.data);
+          toast.error("Data is not in the expected format");
+        }
+      } catch (error: any) {
+        console.error(error.message);
+        toast.error(error.message);
+      } finally {
+      }
+    };
+    getMarkedClassesData();
+  }, []);
 
   useLayoutEffect(() => {
     const getUserDetails = async () => {
@@ -159,6 +186,18 @@ const DashBoard = () => {
                 <h1 className="text-dark-blue font-bold text-2xl mb-5">
                   Total Attendance Count -{attendanceCount} <br />
                 </h1>
+                <div className="bg-light-blue rounded-lg">
+                  {markedClassData.map((data, index) => (
+                    <div key={index} className="py-3">
+                      <h2 className="px-6 capitalize text-lg text-dark-yellow">
+                        {data.username}
+                      </h2>
+                      <p className="px-6 whitespace-nowrap text-sm text-white">
+                        {data.course}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
