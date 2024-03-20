@@ -184,7 +184,10 @@ const DashBoard = () => {
               </div>
               <div>
                 <h1 className="text-dark-blue font-bold text-2xl mb-5">
-                  Total Attendance Count -{attendanceCount} <br />
+                  Today Attendance Count -{attendanceCount} <br />
+                </h1>
+                <h1 className="text-dark-blue font-bold text-2xl mb-5 pt-3 border-t-2 border-light-blue">
+                  Latest Attendances
                 </h1>
                 <div className="bg-light-blue rounded-lg">
                   {markedClassData.map((data, index) => (
