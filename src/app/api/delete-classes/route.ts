@@ -1,28 +1,29 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { connect } from '@/dbConfig/dbConfig'; // Your DB connection utility
-import Class from '@/models/classModel'; // Your Mongoose model
+import { NextRequest, NextResponse } from 'next/server';
+import { connect } from '@/dbConfig/dbConfig';
+import Class from '@/models/classModel';
+import getDataFromToken from '@/helpers/getDataFromToken'; // Assuming you might need this for auth
 
+// Connect to the database
 connect();
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'DELETE') {
-    const classId = req.body.classId;
-
-    if (!classId) {
-      return res.status(400).json({ message: 'Class ID is required' });
-    }
-
+export async function DELETE(request: NextRequest) {
     try {
-      const deletedClass = await Class.findByIdAndDelete(classId);
-      if (!deletedClass) {
-        return res.status(404).json({ message: 'Class not found' });
-      }
-      return res.status(200).json({ message: 'Class deleted successfully' });
+        // Assuming you're sending the classId as a URL param or in some other way accessible via request
+        // You may need to adjust based on how you're actually sending the classId
+        const url = new URL(request.url);
+        const classId = url.searchParams.get('classId'); // Example: "/api/delete-class?classId=value"
+
+        if (!classId) {
+            return new NextResponse(JSON.stringify({ message: 'Class ID is required' }), { status: 400 });
+        }
+
+        const deletedClass = await Class.findByIdAndDelete(classId);
+        if (!deletedClass) {
+            return new NextResponse(JSON.stringify({ message: 'Class not found' }), { status: 404 });
+        }
+
+        return new NextResponse(JSON.stringify({ message: 'Class deleted successfully' }), { status: 200 });
     } catch (error: any) {
-      return res.status(500).json({ message: error.message });
+        return new NextResponse(JSON.stringify({ message: error.message }), { status: 500 });
     }
-  } else {
-    res.setHeader('Allow', ['DELETE']);
-    res.status(405).end(`Method ${req.method} Not Allowed`);
-  }
 }
