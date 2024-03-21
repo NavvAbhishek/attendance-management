@@ -53,49 +53,46 @@ const AttendanceHistory = () => {
           title="Back to Dashboard"
         />
       </Link>
-      <div className="mt-8 flex justify-center cursor-pointer">
+      <div className="my-8 flex justify-center cursor-pointer">
         <h1 className="text-3xl font-bold text-light-blue p-2 rounded-md bg-dark-yellow ">
           Attendance History
         </h1>
       </div>
-      <div className=" flex justify-center mt-10">
-        <table className="w-[70%] md:w-[65%] lg:w-[50%] bg-blue-50">
-          <thead>
-            <tr className="text-light-blue font-bold text-sm">
-              <th className="px-6 py-3 text-left  uppercase tracking-wider">
-                Name
-              </th>
-              <th className="px-6 py-3 text-left uppercase tracking-wider">
-                Course
-              </th>
-              <th className="px-6 py-3 text-left uppercase tracking-wider">
-                Date
-              </th>
-              <th className="px-6 py-3 text-left uppercase tracking-wider">
-                Time
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {markedClassData.map((data, index) => (
-              <tr key={index} className="bg-white">
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  {data.username}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {data.course}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {data.date}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {data.startTime}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+     {markedClassData.length > 0 ? (
+      <div className="flex justify-center">
+        <div className="overflow-x-auto">
+          <table className="table min-w-full">
+          <thead className="table-head bg-dark-blue text-dark-yellow">
+                <tr>
+                  <th>Username</th>
+                  <th>Course</th>
+                  <th>Date</th>
+                  <th>Start Time</th>
+                </tr>
+              </thead>
+              <tbody className="table-body">
+                {markedClassData.map((classData, index) => (
+                  <tr key={index}>
+                    <td>{classData.username}</td>
+                    <td>{classData.course}</td>
+                    <td>{classData.date}</td>
+                    <td>{classData.startTime}</td>
+                  </tr>
+                ))}
+              </tbody>
+          </table>
+        </div>
       </div>
+     ):(
+      <div className="text-center">
+            <h1 className="text-xl text-red-500 font-bold capitalize">You did not mark any attendances</h1>
+            <Link href="/profile/mark-attendance">
+                <button className="blue-button text-lg mt-6">
+                    Mark Attendances
+                </button>
+            </Link>
+        </div>
+     )}
     </div>
   );
 };
