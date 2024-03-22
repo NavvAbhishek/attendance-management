@@ -8,6 +8,7 @@ import { useReactToPrint } from "react-to-print";
 import BackButton from "@/components/BackButton";
 import Link from "next/link";
 import toast from 'react-hot-toast';
+import Loading from "@/components/Loading";
 
 type ClassData = {
   _id: string;
@@ -46,7 +47,9 @@ const ClassesPage = () => {
         console.error(error.message);
         toast.error(error.message);
       } finally {
-        setIsLoading(false);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1750);
       }
     };
     getClassesData();
@@ -71,7 +74,7 @@ const ClassesPage = () => {
   };
 
   if (isLoading) {
-    return <div>Loading classes...</div>;
+    return <Loading title="Classess"/>;
   }
 
   const copyToClipboard = (text: string) => {

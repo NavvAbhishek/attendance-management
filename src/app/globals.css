@@ -125,3 +125,25 @@
     padding-right: 1.5mm;
   }
 }
+
+
+/*? --------------- Animations to Dots in Laoding --------------- */
+@keyframes dotAnimation {
+  0%, 20% {
+    content: ".";
+  }
+  40% {
+    content: "..";
+  }
+  60% {
+    content: "...";
+  }
+  80%, 100% {
+    content: "";
+  }
+}
+
+.dot-animation::after {
+  content: ""; /* Initial content */
+  animation: dotAnimation 1.5s infinite; /* Apply the animation */
+}
