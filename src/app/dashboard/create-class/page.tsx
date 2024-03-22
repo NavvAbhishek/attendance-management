@@ -51,6 +51,9 @@ const CreateClassPage: React.FC = () => {
         startTime: "",
         finishTime: "",
       });
+      toast("Class Added Successfully!", {
+        icon: "🎓",
+      });
       router.push("/dashboard/create-class");
     } catch (error: any) {
       console.log(
@@ -66,7 +69,10 @@ const CreateClassPage: React.FC = () => {
       <Navbar />
       <div className="relative bg-blue-50">
         <Link href="/dashboard">
-          <BackButton title="Back to Dashboard" className="top-4 md:top-8 left-5"/>
+          <BackButton
+            title="Back to Dashboard"
+            className="top-4 md:top-8 left-5"
+          />
         </Link>
         <form
           className="flex justify-center items-center h-auto sm:py-6 py-[70px]"
@@ -218,14 +224,14 @@ const CreateClassPage: React.FC = () => {
               className="w-full bg-light-blue hover:bg-dark-blue text-light-yellow font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline"
               onClick={handleSubmit}
             >
-              Create
+              Create Class
             </button>
           </div>
         </form>
         <div className="flex justify-center cursor-pointer mt-[-10px] pb-5">
-          <Link href="/dashboard/classess">
+          <Link href="/dashboard/my-classes">
             <button className="flex items-center gap-3 text-xl font-bold text-light-blue p-2 rounded-md bg-dark-yellow ">
-              All Classes
+              My Classes
               <FaAnglesRight />
             </button>
           </Link>

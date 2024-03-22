@@ -2,12 +2,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import axios from "axios";
-import toast from "react-hot-toast";
 import { FaClipboard, FaPrint } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { useReactToPrint } from "react-to-print";
 import BackButton from "@/components/BackButton";
 import Link from "next/link";
+import toast from 'react-hot-toast';
 
 type ClassData = {
   _id: string;
@@ -78,9 +78,8 @@ const ClassesPage = () => {
     navigator.clipboard
       .writeText(text)
       .then(() => {
-        alert("Copied to clipboard");
-        console.log("Session ID copied to clipboard");
-        //! You can also show a toast or alert to inform the user
+        toast.success('Session ID Copied Successfully!')
+        console.log('Session ID Copied Successfully!')
       })
       .catch((err) => {
         console.error("Failed to copy text: ", err);

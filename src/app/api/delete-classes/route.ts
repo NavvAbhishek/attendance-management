@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { connect } from '@/dbConfig/dbConfig';
 import Class from '@/models/classModel';
-import getDataFromToken from '@/helpers/getDataFromToken'; // Assuming you might need this for auth
 
 // Connect to the database
 connect();
