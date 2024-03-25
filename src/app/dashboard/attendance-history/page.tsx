@@ -1,5 +1,6 @@
 "use client";
 import BackButton from "@/components/BackButton";
+import Loading from "@/components/Loading";
 import Navbar from "@/components/Navbar";
 import axios from "axios";
 import Link from "next/link";
@@ -35,14 +36,16 @@ const AttendanceHistory = () => {
         console.error(error.message);
         toast.error(error.message);
       } finally {
-        setIsLoading(false);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1750);
       }
     };
     getMarkedClassesData();
   }, []);
 
   if (isLoading) {
-    return <div>Loading classes...</div>;
+    return <Loading title="Attendance History"/>;
   }
 
   return (

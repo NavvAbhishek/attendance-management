@@ -4,6 +4,7 @@ import axios from "axios";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import BackButton from "@/components/BackButton";
+import Loading from "@/components/Loading";
 
 interface ClassItem {
   _id: string;
@@ -29,7 +30,9 @@ const MyClasses = () => {
       } catch (error) {
         console.error("Error fetching classes:", error);
       } finally {
-        setIsLoading(false);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1750);
       }
     };
 
@@ -37,7 +40,7 @@ const MyClasses = () => {
   }, []);
 
   if (isLoading) {
-    return <div>Loading classes...</div>;
+    return <Loading title="My Classes"/>;
   }
 
   return (
