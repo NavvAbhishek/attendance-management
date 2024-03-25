@@ -10,6 +10,7 @@ import { MdRateReview, MdOutlineClass } from "react-icons/md";
 import { BsPeopleFill } from "react-icons/bs";
 import { Chart } from "@/components/Chart";
 import { PieChart } from "@/components/PieChart";
+import Loading from "@/components/Loading";
 
 const cardData = [
   {
@@ -59,6 +60,7 @@ const DashBoard = () => {
   const [userData, setUserData] = useState<UserData | null>(null);
   const [attendanceCount, setAttendanceCount] = useState(null);
   const [markedClassData, setMarkedClassData] = useState<MarkedClassData[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getMarkedClassesData = async () => {
@@ -91,6 +93,10 @@ const DashBoard = () => {
       } catch (error: any) {
         console.error(error.message);
         toast.error(error.message);
+      } finally{
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1750);
       }
     };
 
@@ -105,7 +111,7 @@ const DashBoard = () => {
     getUserDetails();
     // getAttendanceCounts();
   }, []);
-
+  
   useEffect(() => {
     // Fetch user count from your API endpoint
     const fetchAttendanceCount = async () => {
@@ -137,7 +143,9 @@ const DashBoard = () => {
   //   };
   //   fetchAttendanceCounts();
   // });
-
+  if (isLoading) {
+    return <Loading title="Dashboard" />;
+  }
   return (
     <div>
       {userData?.role === "student" ? (
