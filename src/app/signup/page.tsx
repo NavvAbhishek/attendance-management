@@ -55,8 +55,18 @@ const SignupPage = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100  pattern-bg">
+      <div className="logo flex flex-row gap-5 items-center md:mb-5">
+        <Image
+          src="/Logo.png"
+          alt="logo"
+          width={80}
+          height={80}
+          className="rounded w-[60px] h-[60px] md:w-[80px] md:h-[80px]"
+        />
+        <h1 className="text-2xl md:text-4xl font-bold">Attendix</h1>
+      </div>
       <div className="flex md:flex-row flex-col">
-        <div className="mt-10 md:mt-0">
+        <div className="mt-3 md:mt-0">
           <Image
             src={Img}
             alt="logo"
