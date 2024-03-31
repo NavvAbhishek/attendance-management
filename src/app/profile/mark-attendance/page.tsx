@@ -84,7 +84,6 @@ const MarkAttendence: React.FC = () => {
       const res = await axios.post("/api/mark-attendance", postData);
       if (res.status === 200) {
         console.log("Marked successfully", res.data);
-        alert("Marked Successfull!");
         router.push("/profile");
         toast.success("Class marked successfully");
       } else {

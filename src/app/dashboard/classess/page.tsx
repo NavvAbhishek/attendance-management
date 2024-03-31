@@ -2,13 +2,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import axios from "axios";
-import { FaClipboard, FaPrint } from "react-icons/fa";
+import { FaClipboard } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import { useReactToPrint } from "react-to-print";
 import BackButton from "@/components/BackButton";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import Loading from "@/components/Loading";
+import PrintAsPdf from "@/components/PrintAsPdf";
 
 type ClassData = {
   _id: string;
@@ -28,12 +28,8 @@ type UserData = {
 const ClassesPage = () => {
   const [classData, setClassData] = useState<ClassData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const componentRef = useRef<HTMLDivElement>(null);
   const [userData, setUserData] = useState<UserData | null>(null);
-
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const getClassesData = async () => {
@@ -131,7 +127,7 @@ const ClassesPage = () => {
             <BackButton title="Back to Dashboard" />
           </Link>
           <div>
-            <div className="printableArea" ref={componentRef}>
+            <div className="printableArea" ref={contentRef}>
               <div className="my-8 flex justify-center cursor-pointer">
                 <h1 className="text-3xl font-bold text-light-blue p-2 rounded-md">
                   Classes
@@ -186,14 +182,7 @@ const ClassesPage = () => {
                 </div>
               </div>
             </div>
-            <div className="flex gap-2 items-end justify-center mt-2">
-              <h2 className="text-md text-dark-blue font-semibold">Print</h2>
-              <FaPrint
-                className="cursor-pointer mt-2 w-5 h-5"
-                onClick={handlePrint}
-                title="Print Classes"
-              />
-            </div>
+            <PrintAsPdf contentRef={contentRef} />
           </div>
         </div>
       )}

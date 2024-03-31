@@ -2,9 +2,10 @@
 import BackButton from "@/components/BackButton";
 import Loading from "@/components/Loading";
 import Navbar from "@/components/Navbar";
+import PrintAsPdf from "@/components/PrintAsPdf";
 import axios from "axios";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 
 type MarkedClassData = {
@@ -17,6 +18,8 @@ type MarkedClassData = {
 const AttendanceHistory = () => {
   const [markedClassData, setMarkedClassData] = useState<MarkedClassData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const contentRef = useRef<HTMLDivElement>(null);
+
 
   useEffect(() => {
     const getMarkedClassesData = async () => {
@@ -45,57 +48,62 @@ const AttendanceHistory = () => {
   }, []);
 
   if (isLoading) {
-    return <Loading title="Attendance History"/>;
+    return <Loading title="Attendance History" />;
   }
 
   return (
     <div>
       <Navbar />
       <Link href="/dashboard">
-        <BackButton
-          title="Back to Dashboard"
-        />
+        <BackButton title="Back to Dashboard" />
       </Link>
-      <div className="my-8 flex justify-center cursor-pointer">
-        <h1 className="text-3xl font-bold text-light-blue p-2 rounded-md bg-dark-yellow ">
-          Attendance History
-        </h1>
-      </div>
-     {markedClassData.length > 0 ? (
-      <div className="flex justify-center">
-        <div className="overflow-x-auto">
-          <table className="table min-w-full">
-          <thead className="table-head bg-dark-blue text-dark-yellow">
-                <tr>
-                  <th>Username</th>
-                  <th>Course</th>
-                  <th>Date</th>
-                  <th>Start Time</th>
-                </tr>
-              </thead>
-              <tbody className="table-body">
-                {markedClassData.map((classData, index) => (
-                  <tr key={index}>
-                    <td>{classData.username}</td>
-                    <td>{classData.course}</td>
-                    <td>{classData.date}</td>
-                    <td>{classData.startTime}</td>
+      {markedClassData.length > 0 ? (
+        <div>
+          <div className="printableArea" ref={contentRef}>
+          <div className="my-8 flex justify-center cursor-pointer">
+            <h1 className="text-3xl font-bold text-light-blue p-2 rounded-md bg-dark-yellow ">
+              Attendance History
+            </h1>
+          </div>
+          <div className="flex justify-center">
+            <div className="overflow-x-auto">
+              <table className="table min-w-full">
+                <thead className="table-head bg-dark-blue text-dark-yellow">
+                  <tr>
+                    <th>Username</th>
+                    <th>Course</th>
+                    <th>Date</th>
+                    <th>Start Time</th>
                   </tr>
-                ))}
-              </tbody>
-          </table>
+                </thead>
+                <tbody className="table-body">
+                  {markedClassData.map((classData, index) => (
+                    <tr key={index}>
+                      <td>{classData.username}</td>
+                      <td>{classData.course}</td>
+                      <td>{classData.date}</td>
+                      <td>{classData.startTime}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          </div>
+          <PrintAsPdf contentRef={contentRef} />
         </div>
-      </div>
-     ):(
-      <div className="text-center">
-            <h1 className="text-xl text-red-500 font-bold capitalize">You did not mark any attendances</h1>
-            <Link href="/profile/mark-attendance">
-                <button className="blue-button text-lg mt-6">
-                    Mark Attendances
-                </button>
-            </Link>
+      ) : (
+        <div className="text-center">
+          <h1 className="text-xl text-red-500 font-bold capitalize">
+            You did not mark any attendances
+          </h1>
+          <Link href="/profile/mark-attendance">
+            <button className="blue-button text-lg mt-6">
+              Mark Attendances
+            </button>
+          </Link>
         </div>
-     )}
+      )}
     </div>
   );
 };
