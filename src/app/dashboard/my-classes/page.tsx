@@ -6,6 +6,8 @@ import Link from "next/link";
 import BackButton from "@/components/BackButton";
 import Loading from "@/components/Loading";
 import PrintAsPdf from "@/components/PrintAsPdf";
+import { FaClipboard } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 interface ClassItem {
   _id: string;
@@ -41,6 +43,18 @@ const MyClasses = () => {
     fetchClasses();
   }, []);
 
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        toast.success("Session ID Copied Successfully!");
+        console.log("Session ID Copied Successfully!");
+      })
+      .catch((err) => {
+        console.error("Failed to copy text: ", err);
+      });
+  };
+
   if (isLoading) {
     return <Loading title="My Classes" />;
   }
@@ -71,6 +85,7 @@ const MyClasses = () => {
                       <th>Date</th>
                       <th>Start Time</th>
                       <th>Finish Time</th>
+                      <th>Options</th>
                     </tr>
                   </thead>
                   <tbody className="table-body">
@@ -83,6 +98,14 @@ const MyClasses = () => {
                         <td>{classData.date}</td>
                         <td>{classData.startTime}</td>
                         <td>{classData.finishTime}</td>
+                        <td >
+                          <span className="flex items-center justify-center">
+                            <FaClipboard
+                              className="w-5 h-5"
+                              onClick={() => copyToClipboard(classData._id)}
+                            />
+                          </span>
+                        </td>
                       </tr>
                     ))}
                   </tbody>

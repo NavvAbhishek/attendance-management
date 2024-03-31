@@ -160,20 +160,22 @@ const ClassesPage = () => {
                           <td>{data.date}</td>
                           <td>{data.startTime}</td>
                           <td>{data.finishTime}</td>
-                          <td className="flex items-center justify-center overflow-hidden">
-                            <span>
-                              <FaClipboard
-                                className="w-5 h-5 border-none"
-                                onClick={() => copyToClipboard(data._id)}
-                              />
-                            </span>
-                            <span>
-                              <MdDelete
-                                className="w-6 h-6 cursor-pointer"
-                                onClick={() => deleteClass(data._id)}
-                                title="Delete Class"
-                              />
-                            </span>
+                          <td>
+                            <div className="flex items-center justify-center">
+                              <span>
+                                <FaClipboard
+                                  className="w-5 h-5 border-none"
+                                  onClick={() => copyToClipboard(data._id)}
+                                />
+                              </span>
+                              <span>
+                                <MdDelete
+                                  className="w-6 h-6 cursor-pointer"
+                                  onClick={() => deleteClass(data._id)}
+                                  title="Delete Class"
+                                />
+                              </span>
+                            </div>
                           </td>
                         </tr>
                       ))}
