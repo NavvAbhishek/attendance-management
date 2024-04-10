@@ -57,22 +57,18 @@ const ClassesPage = () => {
     getClassesData();
   }, []);
 
-  const deleteClass = async (classId: string) => {
-    if (!confirm("Are you sure you want to delete this class?")) {
-      return;
-    }
-
+  const handleDeleteClass = async (classId: any) => {
     try {
-      const res = await axios.delete("/api/delete-classes", {
-        data: { classId },
-      });
-      console.log("Deleted Class Response:", res.data);
+      // Call DELETE API endpoint
+      const response = await axios.delete(`/api/classess?id=${classId}`);
+      console.log(response.data.message);
+      toast.success("Class deleted successfully");
 
-      // Remove the class from the state
-      setClassData(classData.filter((data) => data._id !== classId));
-      toast.success("Class successfully deleted");
-    } catch (error: any) {
-      console.error(error.message);
+      // Refresh the class list
+      const updatedClassData = classData.filter((cls) => cls._id !== classId);
+      setClassData(updatedClassData);
+    } catch (error) {
+      console.error(error);
       toast.error("Failed to delete class");
     }
   };
@@ -171,7 +167,7 @@ const ClassesPage = () => {
                               <span>
                                 <MdDelete
                                   className="w-6 h-6 cursor-pointer"
-                                  onClick={() => deleteClass(data._id)}
+                                  onClick={() => handleDeleteClass(data._id)}
                                   title="Delete Class"
                                 />
                               </span>
