@@ -22,7 +22,7 @@ const Footer = () => {
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-              <ul className="text-light-yellow">
+              <ul className="text-light-yellow hover:text-dark-yellow">
                 <li>
                   <a href="/dashboard" >
                     Dashboard
@@ -31,7 +31,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <ul className="text-light-yellow">
+              <ul className="text-light-yellow hover:text-dark-yellow">
                 <li>
                   <a
                     href="/profile"            
@@ -42,7 +42,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <ul className="text-light-yellow">
+              <ul className="text-light-yellow hover:text-dark-yellow">
                 <li>
                   <a href="/privacy-policy" >
                     Privacy Policy
@@ -62,11 +62,11 @@ const Footer = () => {
             . All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-            <FaFacebook className="w-[20px] h-[20px] text-white cursor-pointer"/>
-            <FaInstagram className="w-[20px] h-[20px] text-white cursor-pointer"/>
-            <FaTwitter className="w-[20px] h-[20px] text-white cursor-pointer"/>
-            <FaPinterest className="w-[20px] h-[20px] text-white cursor-pointer"/>
-            <FaTiktok className="w-[20px] h-[20px] text-white cursor-pointer"/>
+            <FaFacebook className="w-[20px] h-[20px] text-white hover:text-dark-yellow cursor-pointer"/>
+            <FaInstagram className="w-[20px] h-[20px] text-white hover:text-dark-yellow cursor-pointer"/>
+            <FaTwitter className="w-[20px] h-[20px] text-white hover:text-dark-yellow cursor-pointer"/>
+            <FaPinterest className="w-[20px] h-[20px] text-white hover:text-dark-yellow cursor-pointer"/>
+            <FaTiktok className="w-[20px] h-[20px] text-white hover:text-dark-yellow cursor-pointer"/>
           </div>
         </div>
       </div>
