@@ -18,45 +18,36 @@ const Footer = () => {
               alt="Picture of the author"
               width={100}
               height={100}
-              // blurDataURL="data:..." automatically provided
-              // placeholder="blur" // Optional blur-up while loading
             />
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-        
               <ul className="text-light-yellow">
                 <li>
-                  <a href="/dashboard" className="hover:underline">
+                  <a href="/dashboard" >
                     Dashboard
                   </a>
                 </li>
-               
               </ul>
             </div>
             <div>
-             
               <ul className="text-light-yellow">
                 <li>
                   <a
-                    href="/profile"
-                    className="hover:underline "
+                    href="/profile"            
                   >
                     Profile
                   </a>
-                </li>
-                
+                </li>               
               </ul>
             </div>
             <div>
-             
               <ul className="text-light-yellow">
                 <li>
-                  <a href="/privacy-policy" className="hover:underline">
+                  <a href="/privacy-policy" >
                     Privacy Policy
                   </a>
                 </li>
-            
               </ul>
             </div>
           </div>
@@ -71,11 +62,11 @@ const Footer = () => {
             . All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-            <FaFacebook className="w-[20px] h-[20px] text-white"/>
-            <FaInstagram className="w-[20px] h-[20px] text-white"/>
-            <FaTwitter className="w-[20px] h-[20px] text-white"/>
-            <FaPinterest className="w-[20px] h-[20px] text-white"/>
-            <FaTiktok className="w-[20px] h-[20px] text-white"/>
+            <FaFacebook className="w-[20px] h-[20px] text-white cursor-pointer"/>
+            <FaInstagram className="w-[20px] h-[20px] text-white cursor-pointer"/>
+            <FaTwitter className="w-[20px] h-[20px] text-white cursor-pointer"/>
+            <FaPinterest className="w-[20px] h-[20px] text-white cursor-pointer"/>
+            <FaTiktok className="w-[20px] h-[20px] text-white cursor-pointer"/>
           </div>
         </div>
       </div>

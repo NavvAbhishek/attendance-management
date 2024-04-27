@@ -47,8 +47,8 @@ export default function FeatureSec() {
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Efficient Attendance Managment
               </p>
-              <p className="mt-6 text-md  text-gray-700">
-                Our attendance management app ensures quick and efficient
+              <p className="mt-6 text-md  text-light-blue font-semibold">
+                Attendix ensures quick and efficient
                 tracking of student attendance. Designed to streamline the
                 attendance process, it provides a seamless experience for both
                 educators and students.
@@ -63,7 +63,7 @@ export default function FeatureSec() {
                       />
                       {feature.name}
                     </dt><br />
-                    <dd className="inline text-sm">{feature.description}</dd>
+                    <dd className="inline text-sm text-light-blue">{feature.description}</dd>
                   </div>
                 ))}
               </dl>

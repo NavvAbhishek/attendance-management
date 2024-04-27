@@ -4,19 +4,19 @@
 
 /*? --------------- global.css --------------- */
 .yellow-button {
-  color: #001d3d;
-  background-color: #ffd60a;
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  text-align: center;
+  @apply text-normal-blue bg-dark-yellow rounded-lg p-2 text-center transition-all duration-300;
+}
+
+.yellow-button:hover {
+  @apply pl-2 pr-4; /* Increase padding to make the button wider */
 }
 
 .blue-button {
-  color: #ffd60a;
-  background-color: #001d3d;
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-  text-align: center;
+  @apply text-light-yellow bg-normal-blue rounded-lg p-2 text-center transition-all duration-300;
+}
+
+.blue-button:hover {
+  @apply pl-2 pr-4; /* Increase padding to make the button wider */
 }
 
 .white-button {
@@ -33,6 +33,20 @@
     radial-gradient(#454df7 0.6px, #ffffff 0.6px);
   background-size: 24px 24px;
   background-position: 0 0, 12px 12px;
+}
+
+/*? --------------- Navbar Links --------------- */
+.desktop-nav div::after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 3.5px;
+  width: 0%;
+  background-color: #ffb703;
+  transition: all ease-in-out 250ms;
+}
+.desktop-nav div:hover::after {
+  width: 80%;
 }
 
 /*? --------------- In thy styles/globals.css --------------- */
@@ -126,10 +140,10 @@
   }
 }
 
-
 /*? --------------- Animations to Dots in Laoding --------------- */
 @keyframes dotAnimation {
-  0%, 20% {
+  0%,
+  20% {
     content: ".";
   }
   40% {
@@ -138,7 +152,8 @@
   60% {
     content: "...";
   }
-  80%, 100% {
+  80%,
+  100% {
     content: "";
   }
 }

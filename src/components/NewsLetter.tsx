@@ -27,10 +27,7 @@ export default function NewsLetter() {
                 className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                 placeholder="Enter your email"
               />
-              <button
-                type="submit"
-                className="flex-none rounded-md bg-dark-blue px-3.5 py-2.5 text-sm font-semibold text-light-yellow shadow-sm hover:bg-light-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-              >
+              <button className="text-normal-blue font-semibold bg-dark-yellow rounded-lg p-2 text-center">
                 Subscribe
               </button>
             </div>
@@ -45,9 +42,9 @@ export default function NewsLetter() {
               </div>
               <dt className="mt-4 font-semibold text-white">Weekly articles</dt>
               <dd className="mt-2 leading-7 text-gray-400">
-                Dive into our curated weekly articles that cover a
-                range of topics from advanced attendance management strategies
-                to user success stories.
+                Dive into our curated weekly articles that cover a range of
+                topics from advanced attendance management strategies to user
+                success stories.
               </dd>
             </div>
             <div className="flex flex-col items-start">
@@ -59,8 +56,8 @@ export default function NewsLetter() {
               </div>
               <dt className="mt-4 font-semibold text-white">No spam</dt>
               <dd className="mt-2 leading-7 text-gray-400">
-                Your inbox&apos;s integrity is important to us. We promise to only
-                send you content that is meaningful and relevant. 
+                Your inbox&apos;s integrity is important to us. We promise to
+                only send you content that is meaningful and relevant.
               </dd>
             </div>
           </dl>
