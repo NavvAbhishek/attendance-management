@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
+import Loading from "@/components/Loading";
 
 interface MarkedClassItem {
   _id: string;
@@ -41,11 +42,11 @@ const MyAttendanceHistory = () => {
   }, []);
 
   if (isLoading) {
-    return <div>Loading classes...</div>;
+    return <Loading title="Attendance History" />;
   }
 
   return (
-    <div>
+    <div className="pattern-bg min-h-screen">
       <Navbar />
       <div className="my-8 flex justify-center">
         <h1 className="text-3xl font-bold text-light-blue p-2 rounded-md">

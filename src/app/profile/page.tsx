@@ -50,14 +50,14 @@ const ProfilePage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="pattern-bg min-h-screen">
       <Navbar />
       <Link href="/">
         <BackButton title="Back to Home" />
       </Link>
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center ">
         <div>
-          <h1 className="text-3xl font-bold text-light-blue p-2 rounded-md mt-16 sm:mt-6">
+          <h1 className="text-3xl font-bold text-light-blue p-2 rounded-md mt-16 sm:mt-18">
             My Profile
           </h1>
         </div>
@@ -89,17 +89,15 @@ const ProfilePage = () => {
         <hr />
         <div className="buttons flex mt-8 sm:gap-[4.5rem] gap-10">
           {userData?.role === "student" ? (
-            <div>
-              <Link href="/profile/mark-attendance">
-                <h1 className="text-md font-bold text-light-blue p-2 rounded-md bg-dark-yellow">
-                  Mark Attendance
-                </h1>
-              </Link>
-              <Link href="/profile/my-att-history">
-                <h1 className="text-md font-bold text-light-blue p-2 my-8 rounded-md bg-dark-yellow">
+            <div className=" flex flex-col gap-8">
+              <button className="normal-yellowhover-button font-bold">
+                <Link href="/profile/mark-attendance">Mark Attendance </Link>
+              </button>
+              <button className="normal-yellowhover-button font-bold mb-10 md:mb-0">
+                <Link href="/profile/my-att-history">
                   My Attendance History
-                </h1>
-              </Link>
+                </Link>
+              </button>
             </div>
           ) : (
             ""
@@ -108,11 +106,9 @@ const ProfilePage = () => {
             <button
               type="button"
               onClick={logout}
-              className="
-         text-white bg-gradient-to-br from-purple-600 to-blue-500 
-        hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 
-        dark:focus:ring-blue-800 font-bold rounded-lg text-md text-center px-3 py-2"
-            >
+              className="normal-bluehover-button font-bold"
+              style={{ padding: '0.5rem 1.25rem' }} 
+              >
               Logout
             </button>
           </div>

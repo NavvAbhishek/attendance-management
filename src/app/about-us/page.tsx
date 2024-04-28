@@ -7,7 +7,7 @@ const AboutUs = () => {
     <div>
       <Navbar />
 
-      <div className="mt-8 flex flex-col justify-center items-center cursor-pointer">
+      <div className="mt-8 text-center">
         <h1 className="text-4xl font-bold text-light-blue p-2 rounded-md  ">
           About Us
         </h1>
@@ -20,7 +20,7 @@ const AboutUs = () => {
           height={425}
           className="mt-6"
         />
-        <div className="description">
+        <div className="description bg-white">
           <p>
             Welcome to <span className="text-dark-blue font-bold">Attendix</span>, where innovation meets efficiency in attendance
             management. Founded in 2023, our mission is to simplify and

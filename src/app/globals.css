@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/*? --------------- global.css --------------- */
+/*? --------------- Yellow Buttons --------------- */
 .yellow-button {
   @apply text-normal-blue bg-dark-yellow rounded-lg p-2 text-center transition-all duration-300;
 }
@@ -11,12 +11,30 @@
   @apply pl-2 pr-4; /* Increase padding to make the button wider */
 }
 
+.normal-yellow-button {
+  @apply text-normal-blue bg-dark-yellow rounded-lg p-2 text-center;
+}
+
+.normal-yellowhover-button {
+  @apply text-normal-blue bg-light-yellow hover:text-light-yellow hover:bg-normal-blue rounded-lg p-2 text-center transition-all duration-300;
+}
+
+/*? --------------- Blue Buttons --------------- */
+
 .blue-button {
   @apply text-light-yellow bg-normal-blue rounded-lg p-2 text-center transition-all duration-300;
 }
 
 .blue-button:hover {
   @apply pl-2 pr-4; /* Increase padding to make the button wider */
+}
+
+.normal-blue-button {
+  @apply text-light-yellow bg-normal-blue rounded-lg p-2 text-center;
+}
+
+.normal-bluehover-button {
+  @apply text-light-yellow bg-normal-blue hover:text-normal-blue hover:bg-light-yellow rounded-lg p-2 text-center transition-all duration-300;
 }
 
 .white-button {
@@ -111,6 +129,10 @@
 
 .table-body tr:nth-child(even) {
   background-color: #ffd60a;
+}
+
+.table-body tr:nth-child(odd) {
+  background-color: #ffffff;
 }
 
 .table-body tr:hover:nth-child(even) {

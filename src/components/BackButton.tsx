@@ -8,15 +8,17 @@ type BackButtonProps = {
 
 const BackButton: React.FC<BackButtonProps> = ({ title, className }) => {
   return (
-    <button
+   <div className='group'>
+     <button
       className={clsx(
-        "blue-button flex items-center top-24 left-5 absolute group",
+        "blue-button flex items-center top-24 left-5 absolute ",
         className // This will allow you to add additional classes from the parent component
       )}
     >
-      <MdArrowBackIos className="transition-all group-hover:-translate-x-2" />
+      <MdArrowBackIos className="transition-all group-hover:-translate-x-1" />
       <span className="text-lg">{title}</span>
     </button>
+   </div>
   );
 };
 

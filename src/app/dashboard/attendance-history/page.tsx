@@ -52,7 +52,7 @@ const AttendanceHistory = () => {
   }
 
   return (
-    <div>
+    <div className="pattern-bg min-h-screen">
       <Navbar />
       <Link href="/dashboard">
         <BackButton title="Back to Dashboard" />
@@ -60,8 +60,8 @@ const AttendanceHistory = () => {
       {markedClassData.length > 0 ? (
         <div>
           <div className="printableArea" ref={contentRef}>
-          <div className="my-8 flex justify-center cursor-pointer">
-            <h1 className="text-3xl font-bold text-light-blue p-2 rounded-md bg-dark-yellow ">
+          <div className="my-8 text-center pt-12 md:pt-0">
+            <h1 className="text-3xl font-bold text-light-blue">
               Attendance History
             </h1>
           </div>

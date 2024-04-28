@@ -97,22 +97,22 @@ const MarkAttendence: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="pattern-bg min-h-screen">
       {userData?.role === "student" ? (
         <div>
           <Navbar />
           <div>
             <div className="flex items-center justify-center p-4 mt-10 sm:mt-7">
-              <div className="flex border-2 rounded">
+              <div className="flex border-2 border-normal-blue rounded">
                 <input
                   type="text"
-                  className="px-4 py-2 w-80 md:w-96 lg:max-w-md"
+                  className="px-4 py-2 border-r border-normal-blue w-80 md:w-96 lg:max-w-md"
                   placeholder="Enter Class ID..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 <button
-                  className="flex items-center justify-center px-4 border-l"
+                  className="bg-white flex items-center justify-center px-4 border-l"
                   onClick={handleSearch}
                 >
                   <FaSearch className="w-4 h-4" />
@@ -124,15 +124,15 @@ const MarkAttendence: React.FC = () => {
               {displayedClassData.map((data) => (
                 <div
                   key={data._id}
-                  className="bg-blue-50 w-[50%] sm:w-[45%] md:w-[35%] lg:w-[25%] flex flex-col gap-1 px-5 py-5 mt-5 rounded-md"
+                  className="bg-normal-blue text-light-yellow w-[50%] sm:w-[45%] md:w-[35%] lg:w-[25%] flex flex-col gap-1 px-5 py-5 mt-5 rounded-md"
                 >
-                  <h1>Name - {username}</h1>
-                  <h1>Course - {data.course}</h1>
-                  <h1>Date - {data.date}</h1>
-                  <h1>Start Time - {data.startTime}</h1>
+                  <h1><span className="font-bold">Name</span> - {username}</h1>
+                  <h1><span className="font-bold">Course</span> - {data.course}</h1>
+                  <h1><span className="font-bold">Date</span> - {data.date}</h1>
+                  <h1><span className="font-bold">Start Time</span> - {data.startTime}</h1>
                   <div>
                     <button
-                      className="mark-button text-md font-bold text-dark-yellow px-2 py-[2px] mt-2 rounded-md bg-light-blue"
+                      className="mark-button text-md font-bold text-dark-blue px-2 py-[2px] mt-2 rounded-md bg-dark-yellow"
                       onClick={() =>
                         handleClick(data.course, data.date, data.startTime)
                       }

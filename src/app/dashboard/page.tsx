@@ -93,7 +93,7 @@ const DashBoard = () => {
       } catch (error: any) {
         console.error(error.message);
         toast.error(error.message);
-      } finally{
+      } finally {
         setTimeout(() => {
           setIsLoading(false);
         }, 1750);
@@ -111,7 +111,7 @@ const DashBoard = () => {
     getUserDetails();
     // getAttendanceCounts();
   }, []);
-  
+
   useEffect(() => {
     // Fetch user count from your API endpoint
     const fetchAttendanceCount = async () => {
@@ -198,16 +198,19 @@ const DashBoard = () => {
                   Latest Attendances
                 </h1>
                 <div className="bg-light-blue rounded-lg">
-                  {markedClassData.map((data, index) => (
-                    <div key={index} className="py-3">
-                      <h2 className="px-6 capitalize text-lg text-dark-yellow">
-                        {data.username}
-                      </h2>
-                      <p className="px-6 whitespace-nowrap text-sm text-white">
-                        {data.course}
-                      </p>
-                    </div>
-                  ))}
+                  {markedClassData
+                    .slice()
+                    .reverse()
+                    .map((data, index) => (
+                      <div key={index} className="py-3">
+                        <h2 className="px-6 capitalize text-lg text-dark-yellow">
+                          {data.username}
+                        </h2>
+                        <p className="px-6 whitespace-nowrap text-sm text-white">
+                          {data.course}
+                        </p>
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>

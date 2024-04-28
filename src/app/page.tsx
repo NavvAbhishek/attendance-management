@@ -15,7 +15,7 @@ const poppins = Poppins({
 
 export default function Home() {
   return (
-    <div className={`${poppins.className} pattern-bg`}>
+    <div className={`${poppins.className}`}>
       <NavBar />
       <Hero/>
       <FeatureSecOne/>

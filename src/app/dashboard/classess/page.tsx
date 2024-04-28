@@ -104,7 +104,7 @@ const ClassesPage = () => {
   };
 
   return (
-    <div>
+    <div className="pattern-bg min-h-screen">
       {userData?.role === "teacher" ? (
         <div>
           <h1 className="text-xl sm:text-2xl font-bold text-red-600 capitalize p-12">
@@ -124,8 +124,8 @@ const ClassesPage = () => {
           </Link>
           <div>
             <div className="printableArea" ref={contentRef}>
-              <div className="my-8 flex justify-center cursor-pointer">
-                <h1 className="text-3xl font-bold text-light-blue p-2 rounded-md">
+              <div className="text-center">
+                <h1 className="text-3xl font-bold text-light-blue pt-16 pb-8 md:py-10">
                   Classes
                 </h1>
               </div>

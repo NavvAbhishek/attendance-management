@@ -60,7 +60,7 @@ const LoginPage = () => {
             className="w-[400px] md:w-[500px] h-[550px] object-cover md:rounded-s-lg"
           />
         </div>
-        <div className="bg-yellow-100 shadow-xl p-8 h-[550px] w-[400px] md:w-[450px] mb-10 md:mb-0 md:rounded-e-lg">
+        <div className="bg-dark-yellow shadow-xl p-8 h-[550px] w-[400px] md:w-[450px] mb-10 md:mb-0 md:rounded-e-lg">
           <h1 className="font-bold text-center mb-4 text-4xl">
             {loading ? "Processing..." : "Login"}
           </h1>
@@ -104,12 +104,12 @@ const LoginPage = () => {
           >
             {buttonDisabled ? "No Login" : "Login"}
           </button>
-          <Link
-            href="/signup"
-            className="text-light-blue hover:text-dark-blue transition duration-200"
-          >
-            Visit Signup page
-          </Link>
+          <div>
+            Don&apos;t have an account?{" "}
+            <span className="font-semibold text-light-blue hover:text-dark-blue transition duration-200">
+              <Link href="/signup">Signup</Link>
+            </span>
+          </div>
         </div>
       </div>
     </div>
