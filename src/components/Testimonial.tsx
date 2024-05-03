@@ -40,20 +40,20 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <Image src={avatar1} alt="" width={500} height={500} />
+                      <Image src={avatar1} alt="" width={500} height={500}  className="w-full h-full object-cover" />
                     </div>
                     <div className="flex-grow pl-3">
-                      <h6 className="font-bold text-md uppercase text-dark-blue">
+                      <h6 className="font-bold text-xl uppercase text-dark-blue">
                         Kenzie Edgar.
                       </h6>
                     </div>
                   </div>
                   <div className="w-full">
                     <p className="text-sm leading-tight">
-                      <span className="text-xl leading-none italic font-bold text-dark-blue mr-1">
+                      <span className="text-2xl leading-none italic font-bold text-dark-blue mr-1">
                         &quot;
                       </span>
-                      <span className="text-light-blue font-semibold">
+                      <span className="text-light-blue text-sm font-normal">
                         As a school administrator, this system has been a
                         game-changer. The real-time monitoring and automated
                         reports have drastically reduced our administrative
@@ -69,10 +69,10 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <Image src={avatar2} alt="" width={500} height={500} />
+                      <Image src={avatar2} alt="" width={500} height={500}  className="w-full h-full object-cover" />
                     </div>
                     <div className="flex-grow pl-3">
-                      <h6 className="font-bold text-md uppercase text-dark-blue">
+                      <h6 className="font-bold text-xl uppercase text-dark-blue">
                         Stevie Tifft.
                       </h6>
                     </div>
@@ -82,7 +82,7 @@ const Testimonial = () => {
                       <span className="text-xl leading-none italic font-bold text-dark-blue mr-1">
                         &quot;
                       </span>
-                      <span className="text-light-blue font-semibold">
+                      <span className="text-light-blue font-normal">
                         {" "}
                         I was skeptical about switching to a new attendance
                         system, but I&apos;m glad I did. The mobile integration
@@ -102,10 +102,10 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <Image src={avatar3} alt="" width={900} height={900} />
+                      <Image src={avatar3} alt="" width={900} height={900}  className="w-full h-full object-cover" />
                     </div>
                     <div className="flex-grow pl-3">
-                      <h6 className="font-bold text-md uppercase text-dark-blue">
+                      <h6 className="font-bold text-xl uppercase text-dark-blue">
                         Tommie Ewart.
                       </h6>
                     </div>
@@ -115,7 +115,7 @@ const Testimonial = () => {
                       <span className="text-xl leading-none italic font-bold text-dark-blue mr-1">
                         &quot;
                       </span>
-                      <span className="text-light-blue font-semibold">
+                      <span className="text-light-blue font-normal">
                         {" "}
                         The biometric integration of this system has heightened
                         our security and attendance accuracy.
@@ -130,10 +130,10 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <Image src={avatar4} alt="" width={500} height={500} />
+                      <Image src={avatar4} alt="" width={500} height={500}  className="w-full h-full object-cover"/>
                     </div>
                     <div className="flex-grow pl-3">
-                      <h6 className="font-bold text-md uppercase text-dark-blue">
+                      <h6 className="font-bold text-xl uppercase text-dark-blue">
                         Charlie Howse.
                       </h6>
                     </div>
@@ -143,7 +143,7 @@ const Testimonial = () => {
                       <span className="text-xl leading-none italic font-bold text-dark-blue mr-1">
                         &quot;
                       </span>
-                      <span className="text-light-blue font-semibold">
+                      <span className="text-light-blue font-normal">
                         {" "}
                         This platform is a must-have for any growing business.
                         The multi-location support has made it easier for us to
@@ -162,10 +162,10 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <Image src={avatar5} alt="" width={500} height={500} />
+                      <Image src={avatar5} alt="" width={500} height={500}  className="w-full h-full object-cover" />
                     </div>
                     <div className="flex-grow pl-3">
-                      <h6 className="font-bold text-md uppercase text-dark-blue">
+                      <h6 className="font-bold text-xl uppercase text-dark-blue">
                         Nevada Herbertson.
                       </h6>
                     </div>
@@ -175,7 +175,7 @@ const Testimonial = () => {
                       <span className="text-xl leading-none italic font-bold text-dark-blue mr-1">
                         &quot;
                       </span>
-                      <span className="text-light-blue font-semibold">
+                      <span className="text-light-blue font-normal">
                         {" "}
                         As an HR professional, staying compliant with labor laws
                         is crucial. This system not only simplifies attendance
@@ -193,10 +193,10 @@ const Testimonial = () => {
                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
-                      <Image src={avatar6} alt="" width={500} height={500} />
+                      <Image src={avatar6} alt="" width={500} height={500}  className="w-full h-full object-cover" />
                     </div>
                     <div className="flex-grow pl-3">
-                      <h6 className="font-bold text-md uppercase text-dark-blue">
+                      <h6 className="font-bold text-xl uppercase text-dark-blue">
                         Kris Stanton.
                       </h6>
                     </div>
@@ -206,7 +206,7 @@ const Testimonial = () => {
                       <span className="text-xl leading-none italic font-bold text-dark-blue mr-1">
                         &quot;
                       </span>
-                      <span className="text-light-blue font-semibold">
+                      <span className="text-light-blue font-normal">
                         {" "}
                         The customizable alerts feature has been a lifesaver for
                         our remote team. We&apos;re instantly notified of any
