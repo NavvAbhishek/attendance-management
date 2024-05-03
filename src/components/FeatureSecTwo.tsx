@@ -4,12 +4,14 @@ import { BiSolidBellRing } from "react-icons/bi";
 import { BsCloudArrowUpFill } from "react-icons/bs";
 import { TbDeviceMobileSearch } from "react-icons/tb";
 import { LuMonitorCheck } from "react-icons/lu";
+import useAOS from "@/lib/aos-setup";
 
 const FeatureSecTwo = () => {
+  useAOS()
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-        <div className="max-w-screen-md mb-8 lg:mb-16">
+        <div data-aos="fade-right" className="max-w-screen-md mb-8 lg:mb-16">
           <h2 className="mb-4 text-3xl md:text-4xl tracking-tight font-extrabold text-normal-blue dark:text-white">
             Next-Gen Attendance Management
           </h2>
@@ -19,7 +21,7 @@ const FeatureSecTwo = () => {
             innovation.
           </p>
         </div>
-        <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+        <div data-aos="fade-up" className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
           <div>
             <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-primary-100 lg:h-12 lg:w-12 dark:bg-primary-900">
             <LuMonitorCheck className='w-[24px] h-[24px] text-indigo-600'/>

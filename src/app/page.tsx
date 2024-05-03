@@ -1,3 +1,4 @@
+"use client"
 import FeatureSecOne from "../components/FeatureSecOne";
 import FeatureSecTwo from "../components/FeatureSecTwo";
 import Hero from "../components/Hero";

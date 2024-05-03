@@ -1,14 +1,20 @@
+"use client"
 import Image from "next/image";
 import heroImg from "../../public/hero image.png";
 import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
+import useAOS from "@/lib/aos-setup";
 
 const Hero = () => {
+  useAOS();
   return (
     <div className="bg-white">
       <div className="mx-auto pb-6">
         <div className="relative isolate overflow-hidden bg-white px-6 pt-10 md:pt-0 sm:px-16 lg:flex lg:gap-x-16 lg:px-24">
-          <div className="mx-auto max-w-lg text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+          <div
+            data-aos="fade-right"
+            className="mx-auto max-w-lg text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left"
+          >
             <h2 className="text-3xl  font-bold tracking-tight dark-normal-blue sm:text-5xl leading-4">
               Simplify Attendance Tracking and
               <br />
@@ -29,7 +35,10 @@ const Hero = () => {
               </Link>
             </div>
           </div>
-          <div className="relative flex items-center justify-center mt-16 md:mt-0 w-[450px] md:w-[750px]">
+          <div
+            data-aos="fade-left"
+            className="relative flex items-center justify-center mt-16 md:mt-0 w-[450px] md:w-[750px]"
+          >
             <Image
               src={heroImg}
               alt="Picture of the author"

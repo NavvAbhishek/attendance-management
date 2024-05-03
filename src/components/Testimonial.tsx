@@ -9,14 +9,16 @@ import avatar3 from "../../public/avatars/avatar3.png";
 import avatar4 from "../../public/avatars/avatar4.png";
 import avatar5 from "../../public/avatars/avatar5.png";
 import avatar6 from "../../public/avatars/avatar6.png";
+import useAOS from "@/lib/aos-setup";
 
 const Testimonial = () => {
+  useAOS()
   return (
     <div>
       <div className="min-w-screen min-h-screen flex items-center justify-center">
         <div className="w-full bg-white px-5 py-12 md:py-12 text-gray-800">
           <div className="w-full max-w-6xl mx-auto">
-            <div className="text-center max-w-xl mx-auto">
+            <div data-aos="fade-right" className="text-center max-w-xl mx-auto">
               <h1 className="text-4xl md:text-5xl font-extrabold mb-5 text-gray-900">
                 What people <br />
                 are saying.
@@ -37,7 +39,7 @@ const Testimonial = () => {
             </div>
             <div className="-mx-3 md:flex items-start">
               <div className="px-3 md:w-1/3">
-                <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
+                <div data-aos="fade-up-right" className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
                       <Image src={avatar1} alt="" width={500} height={500}  className="w-full h-full object-cover" />
@@ -66,7 +68,7 @@ const Testimonial = () => {
                     </p>
                   </div>
                 </div>
-                <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
+                <div data-aos="fade-down-right" className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
                       <Image src={avatar2} alt="" width={500} height={500}  className="w-full h-full object-cover" />
@@ -99,7 +101,7 @@ const Testimonial = () => {
                 </div>
               </div>
               <div className="px-3 md:w-1/3">
-                <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
+                <div data-aos="fade-up" className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
                       <Image src={avatar3} alt="" width={900} height={900}  className="w-full h-full object-cover" />
@@ -127,7 +129,7 @@ const Testimonial = () => {
                     </p>
                   </div>
                 </div>
-                <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
+                <div data-aos="fade-down" className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
                       <Image src={avatar4} alt="" width={500} height={500}  className="w-full h-full object-cover"/>
@@ -159,7 +161,7 @@ const Testimonial = () => {
                 </div>
               </div>
               <div className="px-3 md:w-1/3">
-                <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
+                <div data-aos="fade-up-left" className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
                       <Image src={avatar5} alt="" width={500} height={500}  className="w-full h-full object-cover" />
@@ -190,7 +192,7 @@ const Testimonial = () => {
                     </p>
                   </div>
                 </div>
-                <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
+                <div data-aos="fade-down-right" className="w-full mx-auto rounded-lg bg-white border border-gray-200 p-5 text-gray-800 font-light mb-6">
                   <div className="w-full flex mb-4 items-center">
                     <div className="overflow-hidden rounded-full w-10 h-10 bg-gray-50 border border-gray-200">
                       <Image src={avatar6} alt="" width={500} height={500}  className="w-full h-full object-cover" />

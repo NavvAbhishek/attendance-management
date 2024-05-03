@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import image from "../../public/sectionOne.png";
 import {
@@ -5,6 +6,8 @@ import {
   LockClosedIcon,
   ServerIcon,
 } from "@heroicons/react/20/solid";
+import useAOS from "@/lib/aos-setup";
+
 
 const features = [
   {
@@ -28,11 +31,12 @@ const features = [
 ];
 
 export default function FeatureSec() {
+  useAOS();
   return (
     <div className="overflow-hidden bg-white">
       <div className="mx-auto max-w-full py-8 px-8 lg:px-16">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-16 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-          <div className="rounded-lg overflow-hidden">
+          <div data-aos="fade-up" className="rounded-lg overflow-hidden">
             <Image
               src={image}
               alt="Picture of the author"
@@ -42,7 +46,7 @@ export default function FeatureSec() {
               placeholder="blur"
             />
           </div>
-          <div className="lg:pr-8 lg:pt-4">
+          <div data-aos="fade-down" className="lg:pr-8 lg:pt-4">
             <div className="lg:max-w-lg">
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Efficient Attendance Managment
