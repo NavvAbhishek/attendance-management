@@ -99,17 +99,7 @@ const DashBoard = () => {
         }, 1750);
       }
     };
-
-    // const getAttendanceCounts = async () => {
-    //   try {
-    //     const response = await axios.get('/api/attendance-count');
-    //     setAttendanceCounts(response.data);
-    //   } catch (error) {
-    //     toast.error('Error fetching attendance counts');
-    //   }
-    // };
     getUserDetails();
-    // getAttendanceCounts();
   }, []);
 
   useEffect(() => {
@@ -129,20 +119,6 @@ const DashBoard = () => {
 
     fetchAttendanceCount();
   }, []);
-
-  // useEffect(() => {
-  //   const fetchAttendanceCounts = async () => {
-  //     try {
-  //       const response = await axios.get("/api/attendance-count");
-  //       setTotalAttendance(response.data.totalAttendance);
-  //       setTodayAttendance(response.data.todayAttendance);
-  //     } catch (error) {
-  //       console.error("Error fetching attendance counts:", error);
-  //       toast.error("Failed to fetch attendance counts");
-  //     }
-  //   };
-  //   fetchAttendanceCounts();
-  // });
   if (isLoading) {
     return <Loading title="Dashboard" />;
   }
