@@ -15,7 +15,7 @@ const Hero = () => {
             data-aos="fade-right"
             className="mx-auto max-w-lg text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left"
           >
-            <h2 className="text-3xl  font-bold tracking-tight dark-normal-blue sm:text-5xl leading-4">
+            <h2 className="text-3xl  font-bold tracking-tight dark-normal-blue sm:text-5xl">
               Simplify Attendance Tracking and
               <br />
               Get Valuable Insights
