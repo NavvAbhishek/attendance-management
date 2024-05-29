@@ -7,10 +7,8 @@ connect();
 
 export async function DELETE(request: NextRequest) {
     try {
-        // Assuming you're sending the classId as a URL param or in some other way accessible via request
-        // You may need to adjust based on how you're actually sending the classId
         const url = new URL(request.url);
-        const classId = url.searchParams.get('classId'); // Example: "/api/delete-class?classId=value"
+        const classId = url.searchParams.get('classId');
 
         if (!classId) {
             return new NextResponse(JSON.stringify({ message: 'Class ID is required' }), { status: 400 });
