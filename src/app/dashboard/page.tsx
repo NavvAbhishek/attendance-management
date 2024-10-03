@@ -73,6 +73,7 @@ const DashBoard = () => {
         console.error(error.message);
         toast.error(error.message);
       } finally {
+        setIsLoading(false);
       }
     };
     getMarkedClassesData();
