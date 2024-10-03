@@ -20,15 +20,9 @@ type ClassData = {
   finishTime: string;
 };
 
-type UserData = {
-  _id: string;
-  role: string;
-};
-
 const ClassesPage = () => {
   const [classData, setClassData] = useState<ClassData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [userData, setUserData] = useState<UserData | null>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -73,20 +67,6 @@ const ClassesPage = () => {
     }
   };
 
-  useEffect(() => {
-    const getUserDetails = async () => {
-      try {
-        const res = await axios.get("/api/users/me");
-        console.log(res.data);
-        setUserData(res.data.data);
-      } catch (error: any) {
-        console.error(error.message);
-        toast.error(error.message);
-      }
-    };
-    getUserDetails();
-  }, []);
-
   if (isLoading) {
     return <Loading title="Classess" />;
   }
@@ -105,85 +85,72 @@ const ClassesPage = () => {
 
   return (
     <div className="pattern-bg min-h-screen">
-      {userData?.role === "teacher" ? (
+      <div>
+        <Navbar />
+        <Link href="/dashboard">
+          <BackButton title="Back to Dashboard" />
+        </Link>
         <div>
-          <h1 className="text-xl sm:text-2xl font-bold text-red-600 capitalize p-12">
-            You don&apos;t have access to this page!!!
-          </h1>
-          <Link href="/">
-            <button className="text-md font-bold text-red-700 p-2 rounded-md bg-dark-yellow ml-12">
-              Back to Home
-            </button>
-          </Link>
-        </div>
-      ) : (
-        <div>
-          <Navbar />
-          <Link href="/dashboard">
-            <BackButton title="Back to Dashboard" />
-          </Link>
-          <div>
-            <div className="printableArea" ref={contentRef}>
-              <div className="text-center">
-                <h1 className="text-3xl font-bold text-light-blue pt-16 pb-8 md:py-10">
-                  Classes
-                </h1>
-              </div>
-              <div className="flex justify-center">
-                <div className="overflow-x-auto">
-                  <table className="table min-w-full">
-                    <thead className="table-head bg-dark-blue text-dark-yellow">
-                      <tr>
-                        <th>Class ID</th>
-                        <th> Year</th>
-                        <th>Semester</th>
-                        <th>Course</th>
-                        <th>Date</th>
-                        <th>Start Time</th>
-                        <th>Finish Time</th>
-                        <th>Options</th>
+          <div className="printableArea" ref={contentRef}>
+            <div className="text-center">
+              <h1 className="text-3xl font-bold text-light-blue pt-16 pb-8 md:py-10">
+                Classes
+              </h1>
+            </div>
+            <div className="flex justify-center">
+              <div className="overflow-x-auto">
+                <table className="table min-w-full">
+                  <thead className="table-head bg-dark-blue text-dark-yellow">
+                    <tr>
+                      <th>Class ID</th>
+                      <th> Year</th>
+                      <th>Semester</th>
+                      <th>Course</th>
+                      <th>Date</th>
+                      <th>Start Time</th>
+                      <th>Finish Time</th>
+                      <th>Options</th>
+                    </tr>
+                  </thead>
+                  <tbody className="table-body">
+                    {classData.map((data, index) => (
+                      <tr key={index}>
+                        <td className="font-semibold">
+                          {data._id.slice(6, 10)}
+                        </td>
+                        <td>{data.year}</td>
+                        <td>{data.semester}</td>
+                        <td>{data.course}</td>
+                        <td>{data.date}</td>
+                        <td>{data.startTime}</td>
+                        <td>{data.finishTime}</td>
+                        <td>
+                          <div className="flex items-center justify-center">
+                            <span>
+                              <FaClipboard
+                                className="w-5 h-5 border-none"
+                                onClick={() => copyToClipboard(data._id)}
+                              />
+                            </span>
+                            <span>
+                              <MdDelete
+                                className="w-6 h-6 cursor-pointer"
+                                onClick={() => handleDeleteClass(data._id)}
+                                title="Delete Class"
+                              />
+                            </span>
+                          </div>
+                        </td>
                       </tr>
-                    </thead>
-                    <tbody className="table-body">
-                      {classData.map((data, index) => (
-                        <tr key={index}>
-                          <td className="font-semibold">
-                            {data._id.slice(6, 10)}
-                          </td>
-                          <td>{data.year}</td>
-                          <td>{data.semester}</td>
-                          <td>{data.course}</td>
-                          <td>{data.date}</td>
-                          <td>{data.startTime}</td>
-                          <td>{data.finishTime}</td>
-                          <td>
-                            <div className="flex items-center justify-center">
-                              <span>
-                                <FaClipboard
-                                  className="w-5 h-5 border-none"
-                                  onClick={() => copyToClipboard(data._id)}
-                                />
-                              </span>
-                              <span>
-                                <MdDelete
-                                  className="w-6 h-6 cursor-pointer"
-                                  onClick={() => handleDeleteClass(data._id)}
-                                  title="Delete Class"
-                                />
-                              </span>
-                            </div>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
-            <PrintAsPdf contentRef={contentRef} />
           </div>
+          <PrintAsPdf contentRef={contentRef} />
         </div>
-      )}
+      </div>
     </div>
   );
 };
