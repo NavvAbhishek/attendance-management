@@ -1,15 +1,34 @@
 "use client";
 import Image from "next/image";
 import logo from "../../public/Logo-RmBg.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dialog } from "@headlessui/react";
 
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Link from "next/link";
+import axios from "axios";
+
+type UserRole = {
+  _id: string;
+  role: string;
+};
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userRole, setUserRole] = useState<UserRole | null>(null);
+
+  useEffect(() => {
+    const getUserRole = async () => {
+      try {
+        const res = await axios.get("api/users/me");
+        setUserRole(res.data.data);
+      } catch (error: any) {
+        console.error(error.message);
+      }
+    };
+    getUserRole();
+  }, []);
 
   return (
     <header className="bg-dark-blue">
@@ -46,7 +65,17 @@ export default function Navbar() {
             <Link href="/profile">Profile</Link>
           </div>
           <div className="relative">
-            <Link href="/profile/mark-attendance">Mark Attendance</Link>
+            {userRole?.role === "student" ? (
+              <Link href="/profile/mark-attendance">Mark Attendance</Link>
+            ) : userRole?.role === "admin" ? (
+              <Link href="/dashboard/classess">View Classess</Link>
+            ) : userRole?.role === "teacher" ? (
+              <Link href="/dashboard/attendance-history">
+                Attendance History
+              </Link>
+            ) : (
+              <Link href="/profile/mark-attendance">Mark Attendance</Link>
+            )}
           </div>
           <div className="relative">
             <Link href="/about-us">About us</Link>
@@ -103,12 +132,35 @@ export default function Navbar() {
                 >
                   Profile
                 </Link>
-                <Link
-                  href="/profile/mark-attendance"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-dark-yellow hover:bg-dark-blue"
-                >
-                  Mark Attendance
-                </Link>
+                {userRole?.role === "student" ? (
+                  <Link
+                    href="/profile/mark-attendance"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-dark-yellow hover:bg-dark-blue"
+                  >
+                    Mark Attendance
+                  </Link>
+                ) : userRole?.role === "admin" ? (
+                  <Link
+                    href="/dashboard/classess"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-dark-yellow hover:bg-dark-blue"
+                  >
+                    View Classess
+                  </Link>
+                ) : userRole?.role === "teacher" ? (
+                  <Link
+                    href="/dashboard/attendance-history"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-dark-yellow hover:bg-dark-blue"
+                  >
+                    Attendance History
+                  </Link>
+                ) : (
+                  <Link
+                    href="/profile/mark-attendance"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-dark-yellow hover:bg-dark-blue"
+                  >
+                    Mark Attendance
+                  </Link>
+                )}
                 <Link
                   href="/about-us"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-dark-yellow hover:bg-dark-blue"
