@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Attendix - Attendance Management System
+
+**Attendix**, an Attendance Management System designed for tracking attendance in educational institutions.
+
+- 👩‍🏫 **Teachers** can easily create and manage classes, view attendance histories, and track student participation.
+- 👨🏻‍💼 **Admins** can view all classes and attendance records via the Dashboard.
+- 👨‍🎓 **Students** can mark their attendance using unique class or session IDs and access their attendance history.
+- 🔐 **JOSÉ** for access control management
+- 🛡️ **JWT** for secure user authentication
+- 🔔 **React-hot-toast** for real-time popup notifications
+
+## Tech Stack:
+- ⚛️ **Next.js with TypeScript** for fast, scalable front-end development
+- 💻 **Tailwind CSS** for a responsive UI
+- 🗄️ **MongoDB** for efficient data storage and management
 
 ## Getting Started
 
-First, run the development server:
+Follow these instructions to set up and run the Attendix project locally.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Make sure you have the following installed on your local machine:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [MongoDB](https://www.mongodb.com/) (for database setup)
+- A MongoDB account or local instance running
+- **npm** for package manager
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Set up environment variables:
 
-## Learn More
+Create a **.env** file in the root directory and add the following variables:
 
-To learn more about Next.js, take a look at the following resources:
+- MONGODB_URI=your-mongodb-uri
+- TOKEN_SECRET=your-jwt-secret
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/NavvAbhishek/attendance-management.git
+   cd attendix
+   npm install
+   npm run dev
+   ```
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
